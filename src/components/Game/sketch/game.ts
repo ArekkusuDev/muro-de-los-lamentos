@@ -1,7 +1,7 @@
 import type { Year, GameInstance } from '@/types'
 import { Player } from './characters/player'
 import { Soul } from './characters/soul'
-import { handleSouls } from './utils/sketch'
+import { handleSouls, clearSoulsCache } from './utils/sketch'
 
 interface State {
 	souls: Soul[]
@@ -14,7 +14,6 @@ let player: Player
 function setup(p5: GameInstance) {
 	return () => {
 		p5.createCanvas(800, 600)
-
 		player = new Player(p5, {})
 	}
 }
@@ -26,7 +25,21 @@ function draw(p5: GameInstance, state: State) {
 		player.move(p5)
 
 		if (state.souls.length && state.year) {
-			handleSouls(p5, state.souls, player, state.year)
+			handleSouls(p5, state.souls, player, state.year).catch(error => {
+				console.error(`Error handling souls: ${error}`)
+			})
+		}
+	}
+}
+
+function keyPressed(p5: GameInstance, state: State) {
+	return () => {
+		if (p5.keyCode === 69) {
+			state.souls.forEach(soul => {
+				if (soul.collision(player.position)) {
+					console.log('collision')
+				}
+			})
 		}
 	}
 }
@@ -41,7 +54,12 @@ export function gameSketch(p5: GameInstance) {
 
 	p5.draw = draw(p5, state)
 
+	p5.keyPressed = keyPressed(p5, state)
+
 	p5.updateWithProps = props => {
+		clearSoulsCache()
+
+		console.log(props.students)
 		// create souls for each student
 		const souls = props.students.map((_, index) => new Soul(p5, index))
 

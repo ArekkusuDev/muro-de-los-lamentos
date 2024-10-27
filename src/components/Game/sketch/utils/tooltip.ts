@@ -33,11 +33,6 @@ export function displayTooltip(p5: GameInstance, x: number, y: number, text: str
 	p5.pop()
 }
 
-export function displayTooltipStudent(
-	p5: GameInstance,
-	x: number,
-	y: number,
-	student: Student
-) {
+export function displayTooltipStudent(p5: GameInstance, x: number, y: number, student: Student) {
 	displayTooltip(p5, x, y, genTextTooltip(student))
 }
