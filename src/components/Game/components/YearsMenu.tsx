@@ -1,4 +1,5 @@
 import type { Year } from '@/types'
+import { CardButton } from './CardButton'
 
 interface YearsMenuProps {
 	yearsList: Year[]
@@ -11,13 +12,11 @@ export function YearsMenu({ yearsList, setYear }: YearsMenuProps) {
 			<h2 className='text-2xl font-semibold'>Selecciona un año</h2>
 			<div className='flex flex-col gap-4'>
 				{yearsList.map(year => (
-					<button
+					<CardButton
 						key={year}
 						onClick={() => setYear(year)}
-						className='py-2 px-4 text-xl font-medium'
-					>
-						{year}
-					</button>
+						text={year}
+					/>
 				))}
 			</div>
 		</div>
