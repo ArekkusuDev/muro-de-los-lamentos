@@ -1,3 +1,4 @@
+import type { ButtonHTMLAttributes } from 'react'
 import type { P5CanvasInstance, SketchProps } from '@p5-wrapper/react'
 
 export interface Student {
@@ -13,6 +14,10 @@ export type StudentsData = Record<Year, Student[]>
 export interface GameState {
 	isGameStarted: boolean
 	year: Year | undefined
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+	text: string
 }
 
 export type GameProps = SketchProps & {

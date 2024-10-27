@@ -1,6 +1,6 @@
 import type { ButtonProps } from '@/types'
 
-export function Button({ text, ...props }: ButtonProps) {
+export function ButtonColored({ text, ...props }: ButtonProps) {
 	return (
 		<button
 			{...props}
