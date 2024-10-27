@@ -1,4 +1,4 @@
-import type { P5CanvasInstance } from '@p5-wrapper/react'
+import type { GameInstance } from '@/types'
 import type { Vector } from 'p5'
 
 interface PlayerProps {
@@ -12,19 +12,19 @@ export class Player {
 	public size: number
 	private character_velocity: number
 
-	constructor(p5: P5CanvasInstance, props: PlayerProps) {
+	constructor(p5: GameInstance, props: PlayerProps) {
 		this.position = p5.createVector(p5.width / 2, p5.height / 2)
 		this.velocity = p5.createVector(0, 0)
 		this.size = props.size ?? 20
 		this.character_velocity = props.velocity ?? 3
 	}
 
-	public show(p5: P5CanvasInstance) {
+	public show(p5: GameInstance) {
 		p5.fill(0, 0, 255)
 		p5.square(this.position.x, this.position.y, this.size)
 	}
 
-	public move(p5: P5CanvasInstance) {
+	public move(p5: GameInstance) {
 		const newVelocity = p5.createVector(0, 0)
 
 		// A
