@@ -26,3 +26,9 @@ export type GameProps = SketchProps & {
 }
 
 export type GameInstance = P5CanvasInstance<GameProps>
+
+export interface GameInstanceState {
+	souls: Soul[]
+	year: Year | null
+	camera: { x: number; y: number }
+}
