@@ -1,5 +1,5 @@
 import { useGameContext } from '@/hooks/useGameContext'
-import { Button } from '@/components/ButtonColored'
+import { ButtonColored } from '@/components/ButtonColored'
 
 export function Home() {
 	const { toggleGameStart } = useGameContext()
@@ -13,7 +13,7 @@ export function Home() {
 				</span>
 			</h1>
 
-			<Button
+			<ButtonColored
 				onClick={toggleGameStart}
 				text='Ver las almas'
 			/>

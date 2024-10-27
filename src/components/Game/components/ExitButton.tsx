@@ -1,5 +1,5 @@
 import { Year } from '@/types'
-import { Button } from '@/components/ButtonColored'
+import { ButtonColored } from '@/components/ButtonColored'
 
 interface ExitButtonProps {
 	year: Year | undefined
@@ -11,14 +11,14 @@ export function ExitButton({ year, setYear, toggleGameStart }: ExitButtonProps) 
 	return (
 		<>
 			{year ? (
-				<Button
+				<ButtonColored
 					onClick={() => {
 						setYear(undefined)
 					}}
 					text='Seleccionar otro año'
 				/>
 			) : (
-				<Button
+				<ButtonColored
 					onClick={toggleGameStart}
 					text='Salir del juego'
 				/>
