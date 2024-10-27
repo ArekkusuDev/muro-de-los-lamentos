@@ -8,7 +8,7 @@ export class Api {
 		return typedData[year] ?? []
 	}
 
-	static getStudentByIndex(year: Year, index: number): Student | undefined {
+	static getStudentByIndex(year: Year, index: number): Student {
 		return typedData[year]?.[index]
 	}
 
