@@ -33,7 +33,7 @@ export function Sketch({ year }: { year: Year }) {
 	if (error) return <div>{error}</div>
 
 	return (
-		<section className='flex'>
+		<section className='flex gap-4'>
 			<aside className='flex flex-col py-2 px-4 bg-black text-lg font-semibold'>
 				<h2>Información del juego</h2>
 				<p>Año: {year}</p>
