@@ -13,5 +13,15 @@ export default defineConfig({
 			'@/hooks': '/src/hooks',
 			'@/lib': '/src/lib'
 		}
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					'react-vendor': ['react', 'react-dom'],
+					'game-core': ['@p5-wrapper/react', 'p5']
+				}
+			}
+		}
 	}
 })
