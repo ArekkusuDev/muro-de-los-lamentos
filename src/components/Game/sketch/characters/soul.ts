@@ -17,11 +17,15 @@ export class Soul {
 	}
 
 	private randomPosition(p5: GameInstance) {
+		const MARGIN = 30
 		// use fixed width and height values
 		// if we refresh the page too fast, the canvas will not be ready
 		// and we get invalid p5.width and p5.height values
-		const x = p5.random(30, 800 - 30)
-		const y = p5.random(30, 600 - 30)
+		const WIDTH = 800
+		const HEIGHT = 600
+
+		const x = p5.random(MARGIN, WIDTH - MARGIN)
+		const y = p5.random(MARGIN, HEIGHT - MARGIN)
 
 		return p5.createVector(x, y)
 	}
