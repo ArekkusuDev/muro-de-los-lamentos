@@ -1,11 +1,11 @@
-import type { P5CanvasInstance } from '@p5-wrapper/react'
+import type { GameInstance } from '@/types'
 import type { Student } from '@/types'
 
 export function genTextTooltip(student: Student) {
 	return `Nombre: ${student.nombre}\nSemestre: ${student.semestre}\nGrupo: ${student.grupo}`
 }
 
-export function displayTooltip(p5: P5CanvasInstance, x: number, y: number, text: string) {
+export function displayTooltip(p5: GameInstance, x: number, y: number, text: string) {
 	const PADDING = 10
 	const tooltipWidth = p5.textWidth(text) + PADDING * 2
 	const tooltipHeight = p5.textAscent() + p5.textDescent() + PADDING * 2
@@ -34,7 +34,7 @@ export function displayTooltip(p5: P5CanvasInstance, x: number, y: number, text:
 }
 
 export function displayTooltipStudent(
-	p5: P5CanvasInstance,
+	p5: GameInstance,
 	x: number,
 	y: number,
 	student: Student
