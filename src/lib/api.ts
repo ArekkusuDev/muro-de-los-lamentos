@@ -1,18 +1,27 @@
-import data from '@/database/data.json'
 import type { Student, StudentsData, Year } from '@/types'
 
-const typedData = data as StudentsData
-
 export class Api {
-	static getStudentsByYear(year: Year): Student[] {
-		return typedData[year] ?? []
+	private static async getData(): Promise<StudentsData> {
+		const data = await import('@/database/data.json')
+
+		return data.default
 	}
 
-	static getStudentByIndex(year: Year, index: number): Student {
-		return typedData[year]?.[index]
+	static async getStudentsByYear(year: Year): Promise<Student[]> {
+		const data = await this.getData()
+
+		return data[year] ?? []
 	}
 
-	static getYearsList(): Year[] {
-		return Object.keys(typedData) as Year[]
+	static async getStudentByIndex(year: Year, index: number): Promise<Student> {
+		const data = await this.getData()
+
+		return data[year]?.[index]
+	}
+
+	static async getYearsList(): Promise<Year[]> {
+		const data = await this.getData()
+
+		return Object.keys(data) as Year[]
 	}
 }
