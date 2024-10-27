@@ -1,12 +1,12 @@
-import type { P5CanvasInstance } from '@p5-wrapper/react'
+import type { GameInstance } from '@/types'
 import type { Vector } from 'p5'
 
 export class Soul {
-	public readonly id: number
-	public readonly size: number
-	public readonly position: Vector
+	public id: number
+	public size: number
+	public position: Vector
 
-	constructor(p5: P5CanvasInstance, id: number) {
+	constructor(p5: GameInstance, id: number) {
 		this.id = id
 		this.size = 20
 		this.position = this.randomPosition(p5)
@@ -16,16 +16,17 @@ export class Soul {
 		return this.id
 	}
 
-	private randomPosition(p5: P5CanvasInstance) {
-		// each soul should be in a random position
-		// but it shouldn't be outside the canvas
-		const x = p5.random(0 + this.size, p5.width - this.size)
-		const y = p5.random(0 + this.size, p5.height - this.size)
+	private randomPosition(p5: GameInstance) {
+		// use fixed width and height values
+		// if we refresh the page too fast, the canvas will not be ready
+		// and we get invalid p5.width and p5.height values
+		const x = p5.random(30, 800 - 30)
+		const y = p5.random(30, 600 - 30)
 
 		return p5.createVector(x, y)
 	}
 
-	public show(p5: P5CanvasInstance) {
+	public show(p5: GameInstance) {
 		p5.fill(255, 0, 0)
 		p5.circle(this.position.x, this.position.y, 20)
 	}
