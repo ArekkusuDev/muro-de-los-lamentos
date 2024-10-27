@@ -3,10 +3,31 @@ import { ExitButton } from './components/ExitButton'
 import { YearsMenu } from './components/YearsMenu'
 import { Api } from '@/lib/api'
 import { Sketch } from './components/Sketch'
+import { LoadingSpinner } from '../LoadingSpinner'
+import { useEffect, useState } from 'react'
+import type { Year } from '@/types'
 
-export function Game() {
+export default function Game() {
 	const { year, setYear, toggleGameStart } = useGameContext()
-	const yearsList = Api.getYearsList()
+	const [yearsList, setYearList] = useState<Year[]>([])
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		const loadYears = async () => {
+			try {
+				const years = await Api.getYearsList()
+				setYearList(years)
+			} catch (error) {
+				console.error(`Error loading years: ${error}`)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		loadYears()
+	}, [])
+
+	if (loading) return <LoadingSpinner />
 
 	return (
 		<section className='flex flex-col h-full items-center gap-2 py-2'>
@@ -24,7 +45,9 @@ export function Game() {
 				/>
 			</header>
 
-			{year ? <Sketch year={year} /> : (
+			{year ? (
+				<Sketch year={year} />
+			) : (
 				<YearsMenu
 					yearsList={yearsList}
 					setYear={setYear}

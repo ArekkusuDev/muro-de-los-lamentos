@@ -1,7 +1,7 @@
 import { useGameContext } from '@/hooks/useGameContext'
 import { ButtonColored } from '@/components/ButtonColored'
 
-export function Home() {
+export default function Home() {
 	const { toggleGameStart } = useGameContext()
 
 	return (
