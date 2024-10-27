@@ -6,21 +6,16 @@ export function genTextTooltip(student: Student) {
 }
 
 export function displayTooltip(p5: GameInstance, x: number, y: number, text: string) {
+	const WORLD_SIZE = 2000
 	const PADDING = 10
 	const tooltipWidth = p5.textWidth(text) + PADDING * 2
 	const tooltipHeight = p5.textAscent() + p5.textDescent() + PADDING * 2
-	let tooltipX = x + 10
-	let tooltipY = y - 30
 
-	if (tooltipX + tooltipWidth > p5.width) {
-		tooltipX = p5.width - tooltipWidth - 10
-	} else if (tooltipX < 0) {
-		tooltipX = 10
-	}
+	let tooltipX = x - tooltipWidth / 2
+	let tooltipY = y - tooltipHeight - 20
 
-	if (tooltipY < 0) {
-		tooltipY = y + 10
-	}
+	tooltipX = p5.constrain(tooltipX - PADDING / 2, 0, WORLD_SIZE - tooltipWidth)
+	tooltipY = p5.constrain(tooltipY - PADDING / 2, 0, WORLD_SIZE - tooltipHeight)
 
 	p5.push()
 	p5.fill(255, 255, 200)
@@ -28,8 +23,8 @@ export function displayTooltip(p5: GameInstance, x: number, y: number, text: str
 	p5.rect(tooltipX, tooltipY, tooltipWidth, tooltipHeight, 5)
 
 	p5.fill(0)
-	p5.textAlign(p5.LEFT, p5.CENTER)
-	p5.text(text, tooltipX + PADDING, tooltipY + tooltipHeight / 2)
+	p5.textAlign(p5.CENTER, p5.CENTER)
+	p5.text(text, tooltipX + tooltipWidth / 2, tooltipY + tooltipHeight / 2)
 	p5.pop()
 }
 
