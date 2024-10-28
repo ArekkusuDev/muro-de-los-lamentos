@@ -1,10 +1,9 @@
 import type { GameInstance } from '@/types'
 import type { Vector } from 'p5'
+import type { GameMap } from '../map/GameMap'
 
 interface PlayerProps {
-	size?: number
-	velocity?: number
-	worldSize?: number
+	gameMap: GameMap
 }
 
 export class Player {
@@ -12,19 +11,18 @@ export class Player {
 	public velocity: Vector
 	public size: number
 	private character_velocity: number
-	private previousPosition: Vector
 	private worldSize: number
 
 	constructor(p5: GameInstance, props: PlayerProps) {
-		this.worldSize = props.worldSize ?? 2000
-		this.position = p5.createVector(this.worldSize / 2, this.worldSize / 2)
-		this.previousPosition = this.position.copy()
+		this.worldSize = 2000
+		// this.position = p5.createVector(this.worldSize / 2, this.worldSize / 2)
+		this.position = props.gameMap.getRandomPosition(p5, 0)
 		this.velocity = p5.createVector(0, 0)
-		this.size = props.size ?? 20
-		this.character_velocity = props.velocity ?? 3
+		this.size = 20
+		this.character_velocity = 3
 	}
 
-	public show(p5: GameInstance) {
+	public draw(p5: GameInstance) {
 		p5.push()
 		p5.fill(0, 0, 255)
 		p5.strokeWeight(0)
@@ -34,7 +32,6 @@ export class Player {
 	}
 
 	public move(p5: GameInstance) {
-		this.previousPosition = this.position.copy()
 		const newVelocity = p5.createVector(0, 0)
 
 		// A
@@ -54,9 +51,5 @@ export class Player {
 		// limit the player to the canvas
 		this.position.x = p5.constrain(this.position.x, this.size / 2, this.worldSize - this.size / 2)
 		this.position.y = p5.constrain(this.position.y, this.size / 2, this.worldSize - this.size / 2)
-	}
-
-	public revertPosition() {
-		this.position = this.previousPosition.copy()
 	}
 }
