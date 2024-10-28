@@ -1,9 +1,15 @@
-import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [
+		react(),
+		legacy({
+			targets: ['defaults', 'not IE 11']
+		})
+	],
 	resolve: {
 		alias: {
 			'@/': '/src',
@@ -19,7 +25,7 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					'react-vendor': ['react', 'react-dom'],
-					'game-core': ['@p5-wrapper/react', 'p5']
+					'p5-core': ['p5', '@p5-wrapper/react']
 				}
 			}
 		}
