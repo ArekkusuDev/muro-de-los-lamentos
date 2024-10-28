@@ -1,36 +1,34 @@
-import type { GameInstance, GameInstanceState } from '@/types'
+import type { GameInstance, GameInstanceState, Student } from '@/types'
 import p5 from 'p5'
 import { Player } from './characters/player'
 import { Soul } from './characters/soul'
 import { GameMap } from './map/GameMap'
 import { updateCamera } from './utils/camera'
-import { clearSoulsCache, handleSouls } from './utils/sketch'
+import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
 
 let state: GameInstanceState = {
 	souls: [],
 	year: null,
 	camera: { x: 0, y: 0 },
-	gameMap: new GameMap()
+	map: new GameMap(),
+	onUpdateGameInfo: undefined
 }
 
 // global instances
 let player: Player
 let soulImage: p5.Image | null = null
+let selectedStudentSoul: Student | undefined
 
 function preload(p5: GameInstance) {
 	return () => {
-		soulImage = p5.loadImage(
-			'/assets/tombstone.avif',
-			() => console.log('Imagen cargada correctamente'),
-			err => console.error('Error al cargar la imagen:', err)
-		)
+		soulImage = p5.loadImage('/assets/tombstone.avif')
 	}
 }
 
 function setup(p5: GameInstance) {
 	return () => {
 		p5.createCanvas(900, 600)
-		player = new Player(p5, { gameMap: state.gameMap })
+		player = new Player(p5, { gameMap: state.map })
 	}
 }
 
@@ -40,7 +38,7 @@ function draw(p5: GameInstance) {
 		p5.push()
 		p5.translate(-state.camera.x, -state.camera.y)
 
-		state.gameMap.draw(p5)
+		state.map.draw(p5)
 		player.draw(p5)
 		player.move(p5)
 
@@ -59,11 +57,16 @@ function draw(p5: GameInstance) {
 function keyPressed(p5: GameInstance) {
 	return () => {
 		if (p5.keyCode === 69) {
-			state.souls.forEach(soul => {
-				if (soul.collision(player.position)) {
-					console.log('collision')
-				}
-			})
+			const { souls } = state
+			selectedStudentSoul = soulOnKeyPress(souls, player.position)
+
+			if (state.onUpdateGameInfo && selectedStudentSoul) {
+				state.onUpdateGameInfo({
+					remainigStudents: state.souls.length - 1,
+					foundStudents: 0,
+					selectedStudent: selectedStudentSoul
+				})
+			}
 		}
 	}
 }
@@ -74,17 +77,18 @@ export function gameSketch(p5: GameInstance) {
 	p5.draw = draw(p5)
 	p5.keyPressed = keyPressed(p5)
 	p5.updateWithProps = props => {
-		clearSoulsCache()
-
 		try {
-			const { gameMap } = state
-			const souls = props.students.map(
-				(_, index) => new Soul(p5, { id: index, gameMap, image: soulImage })
-			)
+			if (props.year !== state.year || state.souls.length !== props.students.length) {
+				clearSoulsCache()
+
+				state.souls = props.students.map(
+					(_, index) => new Soul(p5, { id: index, gameMap: state.map, image: soulImage })
+				)
+			}
 
 			state = Object.assign(state, {
-				souls,
-				...props
+				...props,
+				onUpdateGameInfo: props.onUpdateGameInfo
 			})
 		} catch (error) {
 			console.error(error)
