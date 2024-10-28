@@ -1,27 +1,290 @@
 {
   "2024": [
     {
-      "nombre": "Kevin Zaldivar",
-      "semestre": 1,
-      "grupo": "A"
+      "name": "Regina Paola",
+      "lastnames": "Lopez Espadas",
+      "nickname": "El Espantabobos"
     },
     {
-      "nombre": "Spidi Gonzales",
-      "semestre": 1,
-      "grupo": "B"
+      "name": "Yama Dorantes",
+      "lastnames": "angel Jesús",
+      "nickname": "La Calaca Fiestera"
     },
     {
-      "nombre": "Andy Mukul",
-      "semestre": 1,
-      "grupo": "A"
+      "name": "Bethzy Aylin",
+      "lastnames": "Cat mendez",
+      "nickname": "El Tragapolvo"
     },
     {
-      "nombre": "Martha Mukul",
-      "semestre": 1,
-      "grupo": "A"
+      "name": "Cristy Estefania",
+      "lastnames": "Euan Alpuche",
+      "nickname": "La Bruja de Mercadillo"
+    },
+    {
+      "name": "Isaac Alimy",
+      "lastnames": "Uitz Balam",
+      "nickname": "El Monstruo de Papá"
+    },
+    {
+      "name": "Juan Alejandro",
+      "lastnames": "Pech Cauich",
+      "nickname": "La Esqueleto Rumbera"
+    },
+    {
+      "name": "Liliana Berenice",
+      "lastnames": "Pool Ucan",
+      "nickname": "El Zombi Resfriado"
+    },
+    {
+      "name": "Angel Jesús",
+      "lastnames": "Yama Dorantes",
+      "nickname": "La Vampira Sin Colmillos"
+    },
+    {
+      "name": "Jorge Alejandro",
+      "lastnames": "Silva Canche",
+      "nickname": "El Fantasma Pérezoso"
+    },
+    {
+      "name": "Esdras Francisco",
+      "lastnames": "Cervantes Novelo",
+      "nickname": "La Momia Desenrollada"
+    },
+    {
+      "name": "Virginia Rosalia",
+      "lastnames": "Can Xool",
+      "nickname": "El Conde Sin Capa"
+    },
+    {
+      "name": "Esmeralda Guadalupe",
+      "lastnames": "Aké Caballero",
+      "nickname": "La Hechicera de Ofertas"
+    },
+    {
+      "name": "Sair Geovanny",
+      "lastnames": "Canche Ku",
+      "nickname": "El Hombre Lobo Depilado"
+    },
+    {
+      "name": "Jonathan Rene",
+      "lastnames": "Muños Frias",
+      "nickname": "La Sirena Sin Mar"
+    },
+    {
+      "name": "Cesar Augusto",
+      "lastnames": "Pech González",
+      "nickname": "El Cuervo Chismoso"
+    },
+    {
+      "name": "Ronaldo Gabriel",
+      "lastnames": "Chale Cen",
+      "nickname": "La Calabaza Desinflada"
+    },
+    {
+      "name": "Miguel Guilbardo",
+      "lastnames": "Poot poot",
+      "nickname": "El Aullador Sin Voz"
+    },
+    {
+      "name": "Israel Eduardo",
+      "lastnames": "Salazar Cervantes",
+      "nickname": "La Murciélaga Miope"
+    },
+    {
+      "name": "Edwin Antonio",
+      "lastnames": "Moo dzul",
+      "nickname": "El Sombrío de Verano"
+    },
+    {
+      "name": "Ángel Emmanuel",
+      "lastnames": "Euan Celis",
+      "nickname": "La Muerta de Sueño"
+    },
+    {
+      "name": "Leonardo Javier",
+      "lastnames": "Tamayo Flores",
+      "nickname": "El Espantajo de Barrio"
+    },
+    {
+      "name": "Ivette anai",
+      "lastnames": "Cuevas Caamal",
+      "nickname": "La Encantadora en Rebajas"
+    },
+    {
+      "name": "Karol Emanuel",
+      "lastnames": "Montalvo Balam",
+      "nickname": "El Chupasangre Vegetariano"
+    },
+    {
+      "name": "Jose Israel",
+      "lastnames": "Canche Tamayo",
+      "nickname": "La Sombra que Ronca"
+    },
+    {
+      "name": "David Ezequiel",
+      "lastnames": "Ek Pool",
+      "nickname": "El Fantasmita Miedoso"
+    },
+    {
+      "name": "Tamayo Tec",
+      "lastnames": "Jonatan Eliezer",
+      "nickname": "La Bruja con GPS"
+    },
+    {
+      "name": "Diego Alejandro",
+      "lastnames": "May Chin",
+      "nickname": "El Conde de la Siesta"
+    },
+    {
+      "name": "Manuel Isaias",
+      "lastnames": "Tzuc Euan",
+      "nickname": "La Vampiresa de Dientes Postizos"
+    },
+    {
+      "name": "Angel Rafael",
+      "lastnames": "Vicaria Barroso",
+      "nickname": "El Jinete en Patineta"
+    },
+    {
+      "name": "Jhovany Jesus",
+      "lastnames": "Chan Azcorra",
+      "nickname": "La Loba sin Uñas"
+    },
+    {
+      "name": "Yuceli Odali",
+      "lastnames": "Montes Pech",
+      "nickname": "El Zombi que Bailaba Salsa"
+    },
+    {
+      "name": "Seidy Yaremy",
+      "lastnames": "Euan May",
+      "nickname": "La Sombra de Papel"
+    },
+    {
+      "name": "David Ismael",
+      "lastnames": "Chimal Canul",
+      "nickname": "El Cazador de Moscas"
+    },
+    {
+      "name": "Eisler Benjamin",
+      "lastnames": "Pinzon Canul",
+      "nickname": "La Espectra Despistada"
+    },
+    {
+      "name": "Angel Gabriel",
+      "lastnames": "López Chuc",
+      "nickname": "El Hombre Sin WiFi"
+    },
+    {
+      "name": "Ahisahar Amisabad",
+      "lastnames": "Dzib Reyes",
+      "nickname": "La Calaca con Selfie Stick"
+    },
+    {
+      "name": "Jesus Fernando",
+      "lastnames": "Jiménez Cuytun",
+      "nickname": "El Sepulturero de Memes"
+    },
+    {
+      "name": "Daniel Alejandro",
+      "lastnames": "Helguera Tah",
+      "nickname": "La Muerta Viva"
+    },
+    {
+      "name": "Mario David",
+      "lastnames": "Yam Lizama",
+      "nickname": "El Poltergeist Sin Red"
+    },
+    {
+      "name": "Ayari Alejandra",
+      "lastnames": "Cruz Dzul",
+      "nickname": "La Chupacabras Vegana"
+    },
+    {
+      "name": "Angel Alejandro",
+      "lastnames": "Can Pech",
+      "nickname": "El Lobo Sin Uñas"
+    },
+    {
+      "name": "Braulio Alberto",
+      "lastnames": "Cortés Juárez",
+      "nickname": "La Reina de los Dulces Gratis"
+    },
+    {
+      "name": "Ruben",
+      "lastnames": "Koh Dzul",
+      "nickname": "El Monstruo del TikTok"
+    },
+    {
+      "name": "Carmen Guadalupe",
+      "lastnames": "Kuk Cortez",
+      "nickname": "La Hechicera del WiFi Lento"
+    },
+    {
+      "name": "Paola Yanahi",
+      "lastnames": "Burgos Mex",
+      "nickname": "El Murciélago con Resaca"
+    },
+    {
+      "name": "Heyder Jesus",
+      "lastnames": "Pareja Canche",
+      "nickname": "La Zombi que Ama Netflix"
+    },
+    {
+      "name": "Juan Pablo",
+      "lastnames": "Mercado Villanueva",
+      "nickname": "El Conde del Karaoke"
+    },
+    {
+      "name": "Kevin Geral",
+      "lastnames": "Cauich Pech",
+      "nickname": "La Dama de los Gritos Bajitos"
+    },
+    {
+      "name": "Juan Pablo",
+      "lastnames": "Cime chim",
+      "nickname": "El Fantasma que Hace Dieta"
+    },
+    {
+      "name": "Nashelin Beatriz",
+      "lastnames": "Ramírez Falcón",
+      "nickname": "La Momia Influencer"
+    },
+    {
+      "name": "Mia Guadalupe",
+      "lastnames": "Tamayo Santana",
+      "nickname": "El Espantapájaros con Miedo"
+    },
+    {
+      "name": "Arely Nazaret",
+      "lastnames": "Chale Pita",
+      "nickname": "La Bruja del Cafecito"
+    },
+    {
+      "name": "Cynthia Concepcion",
+      "lastnames": "Poot Gonzalez",
+      "nickname": "La Calavera Fashionista"
+    },
+    {
+      "name": "Richard Aldahir",
+      "lastnames": "May Lavadores",
+      "nickname": "La Muerta de Hambre"
+    },
+    {
+      "name": "Alex David",
+      "lastnames": "May Euan",
+      "nickname": "La Momia en Crocs"
+    },
+    {
+      "name": "Jesus Guadalupe",
+      "lastnames": "Medina Ake",
+      "nickname": "La Calabaza Fitness"
+    },
+    {
+      "name": "Lourdes Yamile",
+      "lastnames": "Ramírez Chan",
+      "nickname": "La Hechicera del Instagram"
     }
   ],
-  "2025": [],
-  "2026": [],
-  "2027": []
+  "2025": []
 }
