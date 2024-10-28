@@ -49,7 +49,7 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 				tooltipPosition = { x: soul.position.x, y: soul.position.y }
 				tooltipVisible = true
 			} else if (soulState.student) {
-				tooltipText = `Presione 'E' para mostrar información de ${soulState.student.nombre}`
+				tooltipText = `Presione 'E' para mostrar información de ${soulState.student.name}`
 				tooltipPosition = { x: soul.position.x, y: soul.position.y }
 				tooltipVisible = true
 			} else {
@@ -77,6 +77,18 @@ export function handleCollision(player: Player, soul: Soul) {
 	const newPos = Vector.add(soul.position, pushDirection.mult(minDistance))
 
 	player.position = newPos
+}
+
+export function soulOnKeyPress(souls: Soul[], playerPositon: Vector) {
+	const soul = souls.find(soul => soul.isInRange(playerPositon))
+
+	if (soul) {
+		const soulState = soulsCache.get(soul.getId())
+
+		if (soulState) {
+			return soulState.student
+		}
+	}
 }
 
 export function clearSoulsCache() {

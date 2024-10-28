@@ -2,7 +2,7 @@ import type { GameInstance } from '@/types'
 import type { Student } from '@/types'
 
 export function genTextTooltip(student: Student) {
-	return `Nombre: ${student.nombre}\nSemestre: ${student.semestre}\nGrupo: ${student.grupo}`
+	return `Nombre: ${student.name}\nApellidos: ${student.lastnames}\nApodo: ${student.nickname}`
 }
 
 export function displayTooltip(p5: GameInstance, x: number, y: number, text: string) {
