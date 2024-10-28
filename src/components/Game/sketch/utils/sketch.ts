@@ -19,7 +19,7 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 	let tooltipVisible = false
 
 	for (const soul of souls) {
-		soul.show(p5)
+		soul.draw(p5)
 
 		const inRange = soul.isInRange(player.position)
 
@@ -77,27 +77,6 @@ export function handleCollision(player: Player, soul: Soul) {
 	const newPos = Vector.add(soul.position, pushDirection.mult(minDistance))
 
 	player.position = newPos
-}
-
-export function drawWorld(p5: GameInstance) {
-	const gridSize = 50
-	const worldSize = 2000
-
-	p5.stroke(150)
-	p5.strokeWeight(1)
-
-	for (let x = 0; x < worldSize; x += gridSize) {
-		p5.line(x, 0, x, worldSize)
-	}
-
-	for (let y = 0; y < worldSize; y += gridSize) {
-		p5.line(0, y, worldSize, y)
-	}
-
-	p5.strokeWeight(5)
-	p5.stroke(255, 0, 0)
-	p5.noFill()
-	p5.rect(0, 0, worldSize, worldSize)
 }
 
 export function clearSoulsCache() {
