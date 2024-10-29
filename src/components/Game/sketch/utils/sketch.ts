@@ -1,5 +1,6 @@
 import { Api } from '@/lib/api'
-import type { GameInstance, Year } from '@/types'
+import type { Year } from '@/types/api'
+import type { GameInstance } from '@/types/game'
 import type { SoulState } from '@/types/soul'
 import { Vector } from 'p5'
 import type { Player } from '../characters/player'

@@ -1,6 +1,6 @@
-import { Suspense, lazy } from 'react'
-import { useGameContext } from '@/hooks/useGameContext'
 import { LoadingSpinner } from '@/components/LoadingSpinner'
+import { useGameContext } from '@/hooks/useGameContext'
+import { Suspense, lazy } from 'react'
 
 const Home = lazy(() => import('@/components/Home'))
 const Game = lazy(() => import('@/components/Game'))

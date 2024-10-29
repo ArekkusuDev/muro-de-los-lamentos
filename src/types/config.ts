@@ -3,7 +3,7 @@ export type GameConfig = {
 		size: number
 		rows: number
 		columns: number
-	},
+	}
 	player: {
 		size: number
 		imageResize: number

@@ -1,5 +1,6 @@
+import type { Year } from '@/types/api'
+import type { GameState } from '@/types/game'
 import { createContext } from 'react'
-import type { GameState, Year } from '@/types'
 
 export interface GameContextType extends GameState {
 	toggleGameStart: () => void

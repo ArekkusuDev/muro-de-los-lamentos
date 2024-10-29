@@ -1,5 +1,6 @@
+import type { Year } from '@/types/api'
+import type { GameState } from '@/types/game'
 import { useEffect, useState } from 'react'
-import type { GameState, Year } from '@/types'
 
 const DEFAULT_GAME_STATE: GameState = {
 	isGameStarted: false,

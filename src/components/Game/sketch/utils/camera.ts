@@ -1,4 +1,4 @@
-import type { GameInstance, GameInstanceState } from '@/types'
+import type { GameInstance, GameInstanceState } from '@/types/game'
 import type { Player } from '../characters/player'
 
 export function updateCamera(p5: GameInstance, state: GameInstanceState, player: Player) {

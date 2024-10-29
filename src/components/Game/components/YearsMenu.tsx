@@ -1,4 +1,4 @@
-import type { Year } from '@/types'
+import type { Year } from '@/types/api'
 import { CardButton } from './CardButton'
 
 interface YearsMenuProps {

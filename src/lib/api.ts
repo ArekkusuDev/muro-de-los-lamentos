@@ -1,4 +1,4 @@
-import type { Student, StudentsData, Year } from '@/types'
+import type { Student, StudentsData, Year } from '@/types/api'
 
 export class Api {
 	private static async getData(): Promise<StudentsData> {
