@@ -12,7 +12,7 @@ export interface Student {
 }
 
 // add more years if needed (i hope)
-export type Year = '2024' | '2025'
+export type Year = '2024'
 
 export type StudentsData = Record<Year, Student[]>
 
