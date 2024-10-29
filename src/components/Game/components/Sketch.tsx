@@ -47,8 +47,8 @@ export function Sketch({ year }: { year: Year }) {
 			<aside className='flex w-full flex-col py-2 px-4 bg-[#1e222a]'>
 				<h2 className='uppercase font-bold text-center'>Información del juego</h2>
 				<p>Año: {year}</p>
-				<p>Estudiantes restantes: {gameInfo.remainigStudents}</p>
-				<p>Estudiantes encontrados: {gameInfo.foundStudents}</p>
+				<p>Almas restantes: {gameInfo.remainigStudents}</p>
+				<p>Almas encontradas: {gameInfo.foundStudents}</p>
 			</aside>
 
 			<ReactP5Wrapper
