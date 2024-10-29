@@ -1,6 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react'
 import type { P5CanvasInstance, SketchProps } from '@p5-wrapper/react'
-import { GameMap } from '@/components/Game/sketch/map/GameMap'
 
 export interface Student {
 	name: string
@@ -43,6 +42,5 @@ export interface GameInstanceState {
 	souls: Soul[]
 	year: Year | null
 	camera: { x: number; y: number }
-	map: GameMap
 	onUpdateGameInfo?: (info: GameInfo) => void
 }
