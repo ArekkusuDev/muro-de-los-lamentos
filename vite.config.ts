@@ -13,6 +13,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@/': '/src',
+			'@/config': '/src/config.ts',
 			'@/components': '/src/components',
 			'@/context': '/src/context',
 			'@/database': '/src/database',
