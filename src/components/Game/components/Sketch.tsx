@@ -10,7 +10,7 @@ export function Sketch({ year }: { year: Year }) {
 	const [error, setError] = useState<string | null>(null)
 	const [gameInfo, setGameInfo] = useState<GameInfo>({
 		remainigStudents: 0,
-		foundStudents: 0,
+		foundStudents: 0
 	})
 
 	useEffect(() => {
@@ -44,11 +44,24 @@ export function Sketch({ year }: { year: Year }) {
 
 	return (
 		<section className='flex gap-4 w-11/12 justify-center text-wrap'>
-			<aside className='flex w-full flex-col py-2 px-4 bg-[#1e222a]'>
-				<h2 className='uppercase font-bold text-center'>Información del juego</h2>
-				<p>Año: {year}</p>
-				<p>Almas restantes: {gameInfo.remainigStudents}</p>
-				<p>Almas encontradas: {gameInfo.foundStudents}</p>
+			<aside className='flex w-full flex-col py-2 px-4 bg-gray-800 rounded-lg shadow-lg min-w-[200px]'>
+				<h2 className='text-xl mb-4 text-purple-400 uppercase font-bold text-center'>
+					Información del juego
+				</h2>
+				<div className='space-y-2'>
+					<p className='flex justify-between'>
+						<span className='font-bold'>Año:</span>
+						<span className='font-semibold'>{year}</span>
+					</p>
+					<p className='flex justify-between'>
+						<span className='font-bold'>Almas restantes:</span>
+						<span className='font-semibold text-orange-400'>{gameInfo.remainigStudents}</span>
+					</p>
+					<p className='flex justify-between'>
+						<span className='font-bold'>Almas encontradas:</span>
+						<span className='font-semibold text-green-400'>{gameInfo.foundStudents}</span>
+					</p>
+				</div>
 			</aside>
 
 			<ReactP5Wrapper
