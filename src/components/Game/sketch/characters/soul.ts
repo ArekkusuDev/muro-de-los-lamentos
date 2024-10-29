@@ -1,6 +1,6 @@
-import type { GameInstance } from '@/types'
+import type { GameInstance } from '@/types/game'
 import type { SoulProps } from '@/types/soul'
-import { Vector, Image } from 'p5'
+import { Image, Vector } from 'p5'
 
 export class Soul {
 	public id: string

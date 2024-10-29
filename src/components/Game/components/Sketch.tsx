@@ -1,5 +1,6 @@
 import { Api } from '@/lib/api'
-import type { GameInfo, Student, Year } from '@/types'
+import type { Student, Year } from '@/types/api'
+import type { GameInfo } from '@/types/game'
 import { ReactP5Wrapper } from '@p5-wrapper/react'
 import { useEffect, useState } from 'react'
 import { gameSketch } from '../sketch/game'

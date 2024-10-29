@@ -1,5 +1,5 @@
-import { GameInstance } from '@/types'
 import { gameConfig } from '@/config'
+import { GameInstance } from '@/types/game'
 
 export class GameMap {
 	private tiles: number[][]

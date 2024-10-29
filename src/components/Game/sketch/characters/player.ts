@@ -1,5 +1,5 @@
 import { gameConfig } from '@/config'
-import type { GameInstance } from '@/types'
+import type { GameInstance } from '@/types/game'
 import type { Image, Vector } from 'p5'
 import type { GameMap } from '../map/GameMap'
 

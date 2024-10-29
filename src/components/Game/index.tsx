@@ -1,11 +1,11 @@
 import { useGameContext } from '@/hooks/useGameContext'
-import { ExitButton } from './components/ExitButton'
-import { YearsMenu } from './components/YearsMenu'
 import { Api } from '@/lib/api'
-import { Sketch } from './components/Sketch'
-import { LoadingSpinner } from '../LoadingSpinner'
+import type { Year } from '@/types/api'
 import { useEffect, useState } from 'react'
-import type { Year } from '@/types'
+import { LoadingSpinner } from '../LoadingSpinner'
+import { ExitButton } from './components/ExitButton'
+import { Sketch } from './components/Sketch'
+import { YearsMenu } from './components/YearsMenu'
 
 export default function Game() {
 	const { year, setYear, toggleGameStart } = useGameContext()

@@ -1,10 +1,10 @@
-import type { GameInstance, GameInstanceState } from '@/types'
+import type { GameInstance, GameInstanceState } from '@/types/game'
 import p5 from 'p5'
 import { Player } from './characters/player'
 import { Soul } from './characters/soul'
+import { GameMap } from './map/GameMap'
 import { updateCamera } from './utils/camera'
 import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
-import { GameMap } from './map/GameMap'
 
 let state: GameInstanceState = {
 	souls: [],

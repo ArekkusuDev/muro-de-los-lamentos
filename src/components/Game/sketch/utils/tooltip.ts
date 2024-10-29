@@ -1,5 +1,5 @@
-import type { GameInstance } from '@/types'
-import type { Student } from '@/types'
+import type { Student } from '@/types/api'
+import type { GameInstance } from '@/types/game'
 
 export function genTextStudent(student: Student) {
 	const { name, lastnames, student_id, email, group, code } = student
