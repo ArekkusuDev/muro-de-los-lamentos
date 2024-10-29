@@ -1,16 +1,10 @@
 import { Api } from '@/lib/api'
-import type { GameInstance, Student, Year } from '@/types'
+import type { GameInstance, Year } from '@/types'
+import type { SoulState } from '@/types/soul'
 import { Vector } from 'p5'
 import type { Player } from '../characters/player'
 import type { Soul } from '../characters/soul'
 import { displayTooltip, genTextStudent } from './tooltip'
-
-interface SoulState {
-	soul: Soul
-	student?: Student
-	isLoading: boolean
-	found?: boolean
-}
 
 // cache to store the souls and their state
 const soulsCache = new Map<string, SoulState>()
