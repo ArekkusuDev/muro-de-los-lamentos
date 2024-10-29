@@ -5,8 +5,8 @@ export class GameMap {
 	private tileSize: number
 	private grassCount = 0
 	private worldSize = 2000
-	private rows = 40
-	private columns = 40
+	private rows = 60
+	private columns = 60
 
 	constructor() {
 		this.tileSize = this.worldSize / this.rows
