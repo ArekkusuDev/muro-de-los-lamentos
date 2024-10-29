@@ -3,16 +3,18 @@ import type { GameInstance, Student, Year } from '@/types'
 import { Vector } from 'p5'
 import type { Player } from '../characters/player'
 import type { Soul } from '../characters/soul'
-import { displayTooltip } from './tooltip'
+import { displayTooltip, genTextStudent } from './tooltip'
 
 interface SoulState {
 	soul: Soul
 	student?: Student
 	isLoading: boolean
+	found?: boolean
 }
 
 // cache to store the souls and their state
-const soulsCache = new Map<number, SoulState>()
+const soulsCache = new Map<string, SoulState>()
+let lastInteractedSoul: string | null = null
 
 /**
  * Handle all the souls in the game like drawing them, checking if the player is in range, and handling the collision
@@ -25,13 +27,25 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 	let tooltipText = ''
 	let tooltipPosition = { x: 0, y: 0 }
 	let tooltipVisible = false
+	let showStudentInfo = false
+	let soulInRange = false
+
+	if (p5.keyIsDown(70)) {
+		showStudentInfo = true
+	}
 
 	for (const soul of souls) {
+		const currentSoulState = soulsCache.get(soul.getId())
+		if (currentSoulState?.found) {
+			soul.setFound(true)
+		}
+
 		soul.draw(p5)
 
 		const inRange = soul.isInRange(player.position)
 
 		if (inRange) {
+			soulInRange = true
 			let soulState = soulsCache.get(soul.getId())
 
 			if (!soulState) {
@@ -42,7 +56,7 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 				soulsCache.set(soul.getId(), soulState)
 
 				try {
-					const student = await Api.getStudentByIndex(year, soul.getId())
+					const student = await Api.getStudentById(year, soul.getId())
 					soulState.student = student
 					soulsCache.set(soul.getId(), soulState)
 					soulState.isLoading = false
@@ -56,7 +70,12 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 			if (soulState.isLoading) {
 				tooltipText = 'Cargando información...'
 			} else if (soulState.student) {
-				tooltipText = `Presione 'E' para mostrar información de ${soulState.student.name}`
+				if (showStudentInfo || lastInteractedSoul === soul.getId()) {
+					tooltipText = genTextStudent(soulState.student)
+					lastInteractedSoul = soul.getId()
+				} else {
+					tooltipText = `Presiona 'F' para mostrar información de ${soulState.student.name}`
+				}
 			} else {
 				tooltipText = 'Error al cargar información'
 			}
@@ -68,6 +87,10 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 		if (soul.collision(player.position, player.size)) {
 			handleCollision(player, soul)
 		}
+	}
+
+	if (!soulInRange) {
+		lastInteractedSoul = null
 	}
 
 	if (tooltipVisible) {
@@ -102,9 +125,27 @@ export function soulOnKeyPress(souls: Soul[], playerPositon: Vector) {
 		const soulState = soulsCache.get(soul.getId())
 
 		if (soulState) {
-			return soulState.student
+			if (!soulState.found) {
+				soulState.found = true
+				soulsCache.set(soul.getId(), soulState)
+
+				const foundSouls = Array.from(soulsCache.values()).filter(state => state.found).length
+
+				return {
+					foundSouls,
+					totalSouls: souls.length
+				}
+			}
+
+			const foundSouls = Array.from(soulsCache.values()).filter(state => state.found).length
+			return {
+				foundSouls,
+				totalSouls: souls.length
+			}
 		}
 	}
+
+	return null
 }
 
 /**
