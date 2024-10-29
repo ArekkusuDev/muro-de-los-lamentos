@@ -3,287 +3,533 @@
     {
       "name": "Regina Paola",
       "lastnames": "Lopez Espadas",
-      "nickname": "El Espantabobos"
-    },
-    {
-      "name": "Yama Dorantes",
-      "lastnames": "angel Jesús",
-      "nickname": "La Calaca Fiestera"
-    },
-    {
-      "name": "Bethzy Aylin",
-      "lastnames": "Cat mendez",
-      "nickname": "El Tragapolvo"
-    },
-    {
-      "name": "Cristy Estefania",
-      "lastnames": "Euan Alpuche",
-      "nickname": "La Bruja de Mercadillo"
-    },
-    {
-      "name": "Isaac Alimy",
-      "lastnames": "Uitz Balam",
-      "nickname": "El Monstruo de Papá"
-    },
-    {
-      "name": "Juan Alejandro",
-      "lastnames": "Pech Cauich",
-      "nickname": "La Esqueleto Rumbera"
-    },
-    {
-      "name": "Liliana Berenice",
-      "lastnames": "Pool Ucan",
-      "nickname": "El Zombi Resfriado"
+      "student_id": "24070046",
+      "email": "regina.24070046@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["JvVhoPgkR3", "vWhaL6DGq5"],
+      "signup_date": "2024-10-22 19:39:57"
     },
     {
       "name": "Angel Jesús",
       "lastnames": "Yama Dorantes",
-      "nickname": "La Vampira Sin Colmillos"
+      "student_id": "24070079",
+      "email": "angel.24070079@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["phEoTvkSzK", "OGPyfC9o9K", "3PFCqPZi9J"],
+      "signup_date": "2024-10-22 20:27:27"
+    },
+    {
+      "name": "Bethzy Aylin",
+      "lastnames": "Cat mendez",
+      "student_id": "24070016",
+      "email": "bethzy.24070016@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["tziMyliCR2", "P0KGLnGREl"],
+      "signup_date": "2024-10-22 20:32:41"
+    },
+    {
+      "name": "Cristy Estefania",
+      "lastnames": "Euan Alpuche",
+      "student_id": "24070036",
+      "email": "cristy.24070036@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "GKysiEMiWk",
+      "signup_date": "2024-10-22 21:27:29"
+    },
+    {
+      "name": "Isaac Alimy",
+      "lastnames": "Uitz Balam",
+      "student_id": "24070076",
+      "email": "isaac.24070076@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["AM9k066FPR", "ynzbGRHBRk"],
+      "signup_date": "2024-10-22 21:27:44"
+    },
+    {
+      "name": "Juan Alejandro",
+      "lastnames": "Pech Cauich",
+      "student_id": "24070059",
+      "email": "juan.24070059@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["ND2BzvBftl", "DA81A9SxXT", "Lj41FrAVl8"],
+      "signup_date": "2024-10-22 21:34:44"
+    },
+    {
+      "name": "Liliana Berenice",
+      "lastnames": "Pool Ucan",
+      "student_id": "24070063",
+      "email": "liliana.24070063@istmotul.edu.mx",
+      "group": "1a",
+      "code": ["dgz9xYM91A", "72HcL3NBLw"],
+      "signup_date": "2024-10-22 21:36:12"
     },
     {
       "name": "Jorge Alejandro",
       "lastnames": "Silva Canche",
-      "nickname": "El Fantasma Pérezoso"
+      "student_id": "24070070",
+      "email": "jorge.24070070@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "DsUKh7om4S",
+      "signup_date": "2024-10-22 21:51:30"
     },
     {
       "name": "Esdras Francisco",
       "lastnames": "Cervantes Novelo",
-      "nickname": "La Momia Desenrollada"
+      "student_id": "24070018",
+      "email": "esdrasnovelo@gmail.com",
+      "group": "1b",
+      "code": "kiSRTUYKcT",
+      "signup_date": "2024-10-22 22:08:21"
     },
     {
       "name": "Virginia Rosalia",
       "lastnames": "Can Xool",
-      "nickname": "El Conde Sin Capa"
+      "student_id": "24070013",
+      "email": "virginia.24070013@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "EV0hI2Igup",
+      "signup_date": "2024-10-22 22:09:06"
     },
     {
       "name": "Esmeralda Guadalupe",
       "lastnames": "Aké Caballero",
-      "nickname": "La Hechicera de Ofertas"
+      "student_id": "24070003",
+      "email": "esmeralda.24070003@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "YNHP5PKHMQ",
+      "signup_date": "2024-10-22 22:20:23"
     },
     {
       "name": "Sair Geovanny",
       "lastnames": "Canche Ku",
-      "nickname": "El Hombre Lobo Depilado"
+      "student_id": "24070014",
+      "email": "sair.24070014@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "oXN5yMVy7v",
+      "signup_date": "2024-10-22 22:24:36"
     },
     {
-      "name": "Jonathan Rene",
-      "lastnames": "Muños Frias",
-      "nickname": "La Sirena Sin Mar"
+      "name": "Muñooz Frias",
+      "lastnames": "Jonathan Rene",
+      "student_id": "24070056",
+      "email": "jonathan.24070056@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "4boLDl0l4h",
+      "signup_date": "2024-10-22 22:29:35"
     },
     {
       "name": "Cesar Augusto",
       "lastnames": "Pech González",
-      "nickname": "El Cuervo Chismoso"
+      "student_id": "24070060",
+      "email": "cesar.24070060@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "609jN5Ynwc",
+      "signup_date": "2024-10-22 23:21:52"
     },
     {
       "name": "Ronaldo Gabriel",
       "lastnames": "Chale Cen",
-      "nickname": "La Calabaza Desinflada"
+      "student_id": "24070019",
+      "email": "ronaldo.24070019@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "MzvWE5wYaC",
+      "signup_date": "2024-10-22 23:29:06"
     },
     {
       "name": "Miguel Guilbardo",
-      "lastnames": "Poot poot",
-      "nickname": "El Aullador Sin Voz"
+      "lastnames": "Poot Poot",
+      "student_id": "24070065",
+      "email": "miguel.24070065@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "bDwtRS972k",
+      "signup_date": "2024-10-22 23:38:34"
     },
     {
       "name": "Israel Eduardo",
       "lastnames": "Salazar Cervantes",
-      "nickname": "La Murciélaga Miope"
+      "student_id": "24070069",
+      "email": "israel.24070069@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "gkhUJIbxLR",
+      "signup_date": "2024-10-22 23:41:57"
     },
     {
       "name": "Edwin Antonio",
-      "lastnames": "Moo dzul",
-      "nickname": "El Sombrío de Verano"
+      "lastnames": "Moo Dzul",
+      "student_id": "24070055",
+      "email": "edwin.24070055@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "cvYx1bJgsk",
+      "signup_date": "2024-10-22 23:45:14"
     },
     {
       "name": "Ángel Emmanuel",
       "lastnames": "Euan Celis",
-      "nickname": "La Muerta de Sueño"
+      "student_id": "24070037",
+      "email": "angel.24070037@istmotul.edu.mx",
+      "group": "1b",
+      "code": "LOorAZYQ0z",
+      "signup_date": "2024-10-22 23:48:30"
     },
     {
       "name": "Leonardo Javier",
       "lastnames": "Tamayo Flores",
-      "nickname": "El Espantajo de Barrio"
+      "student_id": "24070071",
+      "email": "leonardo.24070071@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "cqbKSLiZW5",
+      "signup_date": "2024-10-22 23:52:43"
     },
     {
-      "name": "Ivette anai",
+      "name": "Ivette Anai",
       "lastnames": "Cuevas Caamal",
-      "nickname": "La Encantadora en Rebajas"
+      "student_id": "24070030",
+      "email": "ivette.24070030@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "TW2weJMbiU",
+      "signup_date": "2024-10-22 23:54:26"
     },
     {
       "name": "Karol Emanuel",
       "lastnames": "Montalvo Balam",
-      "nickname": "El Chupasangre Vegetariano"
+      "student_id": "24070053",
+      "email": "karol.24070053@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "hzFCYliSEa",
+      "signup_date": "2024-10-22 23:54:48"
     },
     {
       "name": "Jose Israel",
       "lastnames": "Canche Tamayo",
-      "nickname": "La Sombra que Ronca"
+      "student_id": "24070015",
+      "email": "jose.24070015@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "hZ6MRGeLcQ",
+      "signup_date": "2024-10-22 23:55:00"
     },
     {
       "name": "David Ezequiel",
       "lastnames": "Ek Pool",
-      "nickname": "El Fantasmita Miedoso"
+      "student_id": "24070034",
+      "email": "david.24070034@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "CAQ82usKrG",
+      "signup_date": "2024-10-22 23:55:08"
     },
     {
-      "name": "Tamayo Tec",
-      "lastnames": "Jonatan Eliezer",
-      "nickname": "La Bruja con GPS"
+      "name": "Jonatan Eliezer",
+      "lastnames": "Tamayo Tec",
+      "student_id": "24070073",
+      "email": "jonatan.24070073@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "0ubdH5BYDm",
+      "signup_date": "2024-10-22 23:57:19"
     },
     {
       "name": "Diego Alejandro",
       "lastnames": "May Chin",
-      "nickname": "El Conde de la Siesta"
+      "student_id": "24070048",
+      "email": "diego.24070048@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "FzpStdOExW",
+      "signup_date": "2024-10-23 00:01:11"
     },
     {
       "name": "Manuel Isaias",
       "lastnames": "Tzuc Euan",
-      "nickname": "La Vampiresa de Dientes Postizos"
+      "student_id": "24070075",
+      "email": "manuel.24070075@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "x67WwYJ8D2",
+      "signup_date": "2024-10-23 00:03:08"
     },
     {
       "name": "Angel Rafael",
       "lastnames": "Vicaria Barroso",
-      "nickname": "El Jinete en Patineta"
+      "student_id": "24070077",
+      "email": "angel.24070077@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "pX8RjbC8Lb",
+      "signup_date": "2024-10-23 00:03:08"
     },
     {
       "name": "Jhovany Jesus",
       "lastnames": "Chan Azcorra",
-      "nickname": "La Loba sin Uñas"
+      "student_id": "24070021",
+      "email": "jhovany.24070021@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "KNOWfkR9YB",
+      "signup_date": "2024-10-23 00:04:31"
     },
     {
       "name": "Yuceli Odali",
       "lastnames": "Montes Pech",
-      "nickname": "El Zombi que Bailaba Salsa"
+      "student_id": "24070054",
+      "email": "yuceli.24070054@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "Rl1cOcEwzP",
+      "signup_date": "2024-10-23 00:05:13"
     },
     {
       "name": "Seidy Yaremy",
       "lastnames": "Euan May",
-      "nickname": "La Sombra de Papel"
+      "student_id": "24070038",
+      "email": "seidy.24070038@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "umHxkkDSIr",
+      "signup_date": "2024-10-23 00:05:16"
     },
     {
       "name": "David Ismael",
       "lastnames": "Chimal Canul",
-      "nickname": "El Cazador de Moscas"
+      "student_id": "24070024",
+      "email": "david.24070024@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "9405bdjZNr",
+      "signup_date": "2024-10-23 00:07:08"
     },
     {
       "name": "Eisler Benjamin",
       "lastnames": "Pinzon Canul",
-      "nickname": "La Espectra Despistada"
+      "student_id": "24070062",
+      "email": "eisler.24070062@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "G7AI5YyvFk",
+      "signup_date": "2024-10-23 00:09:10"
     },
     {
       "name": "Angel Gabriel",
       "lastnames": "López Chuc",
-      "nickname": "El Hombre Sin WiFi"
+      "student_id": "24070045",
+      "email": "angel.24070045@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "uWAhLEnbxT",
+      "signup_date": "2024-10-23 00:11:54"
     },
     {
       "name": "Ahisahar Amisabad",
       "lastnames": "Dzib Reyes",
-      "nickname": "La Calaca con Selfie Stick"
+      "student_id": "24070031",
+      "email": "ahisahar.24070031@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "m0prkWG7cy",
+      "signup_date": "2024-10-23 00:12:45"
     },
     {
       "name": "Jesus Fernando",
       "lastnames": "Jiménez Cuytun",
-      "nickname": "El Sepulturero de Memes"
+      "student_id": "24070041",
+      "email": "jesus.24070041@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "AZB4jbhUaN",
+      "signup_date": "2024-10-23 00:15:13"
     },
     {
       "name": "Daniel Alejandro",
       "lastnames": "Helguera Tah",
-      "nickname": "La Muerta Viva"
+      "student_id": "24070039",
+      "email": "Daniel.24070039@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "HYfXGxCIF6",
+      "signup_date": "2024-10-23 00:16:20"
     },
     {
       "name": "Mario David",
       "lastnames": "Yam Lizama",
-      "nickname": "El Poltergeist Sin Red"
+      "student_id": "24070078",
+      "email": "marioyamlizama@gmail.com",
+      "group": "1b",
+      "code": "ahjJABii2Z",
+      "signup_date": "2024-10-23 00:16:29"
     },
     {
       "name": "Ayari Alejandra",
       "lastnames": "Cruz Dzul",
-      "nickname": "La Chupacabras Vegana"
+      "student_id": "24070028",
+      "email": "ayari.24070029@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "mhfv12Hqk6",
+      "signup_date": "2024-10-23 00:16:52"
     },
     {
       "name": "Angel Alejandro",
       "lastnames": "Can Pech",
-      "nickname": "El Lobo Sin Uñas"
+      "student_id": "24070012",
+      "email": "angel.24070012@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "9Q3Bujoifr",
+      "signup_date": "2024-10-23 00:24:17"
     },
     {
-      "name": "Braulio Alberto",
+      "name": "Braulio ALberto",
       "lastnames": "Cortés Juárez",
-      "nickname": "La Reina de los Dulces Gratis"
+      "student_id": "24070028",
+      "email": "braulio.24070028@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "Bykjcnf1T1",
+      "signup_date": "2024-10-23 00:36:38"
     },
     {
       "name": "Ruben",
       "lastnames": "Koh Dzul",
-      "nickname": "El Monstruo del TikTok"
+      "student_id": "24070042",
+      "email": "ruben.24070042@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "lV0hgMk2sy",
+      "signup_date": "2024-10-23 01:03:35"
     },
     {
       "name": "Carmen Guadalupe",
       "lastnames": "Kuk Cortez",
-      "nickname": "La Hechicera del WiFi Lento"
+      "student_id": "24070044",
+      "email": "carmen.24070044@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "iJUgU9S7nk",
+      "signup_date": "2024-10-23 01:12:08"
     },
     {
       "name": "Paola Yanahi",
       "lastnames": "Burgos Mex",
-      "nickname": "El Murciélago con Resaca"
+      "student_id": "24070008",
+      "email": "paola.24070008@itsmotul.edu.mx",
+      "group": "1a",
+      "code": ["67UIpHN4Jb", "rIdwuOFjDi"],
+      "signup_date": "2024-10-23 01:59:51"
     },
     {
       "name": "Heyder Jesus",
       "lastnames": "Pareja Canche",
-      "nickname": "La Zombi que Ama Netflix"
+      "student_id": "24070058",
+      "email": "heyder.24070058@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "WjQuOHG4PN",
+      "signup_date": "2024-10-23 02:23:05"
     },
     {
       "name": "Juan Pablo",
       "lastnames": "Mercado Villanueva",
-      "nickname": "El Conde del Karaoke"
+      "student_id": "24070052",
+      "email": "juan.24070052@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "4yYRlahrpv",
+      "signup_date": "2024-10-23 02:23:45"
     },
     {
       "name": "Kevin Geral",
       "lastnames": "Cauich Pech",
-      "nickname": "La Dama de los Gritos Bajitos"
+      "student_id": "24070017",
+      "email": "kevin.24070017@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "DlmmfnTY3G",
+      "signup_date": "2024-10-23 03:15:37"
     },
     {
       "name": "Juan Pablo",
-      "lastnames": "Cime chim",
-      "nickname": "El Fantasma que Hace Dieta"
+      "lastnames": "Cime Chim",
+      "student_id": "24070027",
+      "email": "juan.24070027@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "7O6K2VRT1Y",
+      "signup_date": "2024-10-23 03:35:33"
     },
     {
       "name": "Nashelin Beatriz",
       "lastnames": "Ramírez Falcón",
-      "nickname": "La Momia Influencer"
+      "student_id": "24070068",
+      "email": "nashelin.24070068@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "5UFE5GTK6W",
+      "signup_date": "2024-10-23 03:38:06"
     },
     {
       "name": "Mia Guadalupe",
       "lastnames": "Tamayo Santana",
-      "nickname": "El Espantapájaros con Miedo"
+      "student_id": "24070072",
+      "email": "mia.24070072@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "fKt3dzhsHh",
+      "signup_date": "2024-10-23 03:48:29"
     },
     {
       "name": "Arely Nazaret",
       "lastnames": "Chale Pita",
-      "nickname": "La Bruja del Cafecito"
+      "student_id": "24070020",
+      "email": "arely.24070020@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "aZuprOqKd4",
+      "signup_date": "2024-10-23 04:17:16"
     },
     {
       "name": "Cynthia Concepcion",
       "lastnames": "Poot Gonzalez",
-      "nickname": "La Calavera Fashionista"
+      "student_id": "24070064",
+      "email": "cynthia.24070064@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "KIHvuszEFa",
+      "signup_date": "2024-10-23 04:18:25"
     },
     {
       "name": "Richard Aldahir",
       "lastnames": "May Lavadores",
-      "nickname": "La Muerta de Hambre"
+      "student_id": "24070050",
+      "email": "richard.24070050@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "ZbO6BseRtW",
+      "signup_date": "2024-10-23 04:23:12"
     },
     {
       "name": "Alex David",
       "lastnames": "May Euan",
-      "nickname": "La Momia en Crocs"
+      "student_id": "24070049",
+      "email": "alex.24070049@itsmotul.edu.mx",
+      "group": "1b",
+      "code": "9wzzrMruct",
+      "signup_date": "2024-10-23 04:46:33"
     },
     {
       "name": "Jesus Guadalupe",
       "lastnames": "Medina Ake",
-      "nickname": "La Calabaza Fitness"
+      "student_id": "24070051",
+      "email": "jesus.24070051@itsmotul.edu.mx",
+      "group": "1b",
+      "code": ["LhHy2IOOy4", "hEvLI0wFSU"],
+      "signup_date": "2024-10-23 05:12:40"
     },
     {
       "name": "Lourdes Yamile",
       "lastnames": "Ramírez Chan",
-      "nickname": "La Hechicera del Instagram"
+      "student_id": "24070067",
+      "email": "lourdes.24070067@itsmotul.edu.mx",
+      "group": "1b",
+      "code": ["ffWzQsiIgY", "v7Kogcy7wh"],
+      "signup_date": "2024-10-23 05:51:33"
+    },
+    {
+      "name": "Grecia Alexandra",
+      "lastnames": "Puch Castillo",
+      "student_id": "24070066",
+      "email": "grecia.24070066@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "133EZtFje6",
+      "signup_date": "2024-10-23 05:51:33"
+    },
+    {
+      "name": "Cristian Uriel",
+      "lastnames": "Chuc Canche",
+      "student_id": "24070025",
+      "email": "cristian.24070025@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "5AobeA1mRr",
+      "signup_date": "2024-10-23 05:51:33"
+    },
+    {
+      "name": "Miriam Beatriz",
+      "lastnames": "Escobedo Tepal",
+      "student_id": "24070035",
+      "email": "miriam.24070035@itsmotul.edu.mx",
+      "group": "1a",
+      "code": "ysJXpJ17xX",
+      "signup_date": "2024-10-23 05:51:33"
     }
   ],
   "2025": []

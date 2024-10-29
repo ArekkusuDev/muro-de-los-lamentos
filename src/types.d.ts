@@ -5,7 +5,11 @@ import { GameMap } from '@/components/Game/sketch/map/GameMap'
 export interface Student {
 	name: string
 	lastnames: string
-	nickname: string
+	student_id: string
+	email: string
+	group: string
+	code: string[] | string
+	signup_date: string
 }
 
 // add more years if needed (i hope)
