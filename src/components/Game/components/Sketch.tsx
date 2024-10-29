@@ -11,7 +11,6 @@ export function Sketch({ year }: { year: Year }) {
 	const [gameInfo, setGameInfo] = useState<GameInfo>({
 		remainigStudents: 0,
 		foundStudents: 0,
-		selectedStudent: null
 	})
 
 	useEffect(() => {
@@ -44,8 +43,8 @@ export function Sketch({ year }: { year: Year }) {
 	if (error) return <div>{error}</div>
 
 	return (
-		<section className='flex gap-4 w-full justify-center text-wrap'>
-			<aside className='flex flex-col py-2 px-4 bg-[#1e222a] text-base'>
+		<section className='flex gap-4 w-11/12 justify-center text-wrap'>
+			<aside className='flex w-full flex-col py-2 px-4 bg-[#1e222a]'>
 				<h2 className='uppercase font-bold text-center'>Información del juego</h2>
 				<p>Año: {year}</p>
 				<p>Estudiantes restantes: {gameInfo.remainigStudents}</p>
@@ -58,18 +57,6 @@ export function Sketch({ year }: { year: Year }) {
 				students={students}
 				onUpdateGameInfo={(info: GameInfo) => setGameInfo(info)}
 			/>
-
-			<aside className='flex flex-col py-2 px-4 bg-[#1e222a] text-base max-w-70'>
-				<h2 className='uppercase font-bold text-center'>Información del estudiante</h2>
-				<p>Nombre: {gameInfo.selectedStudent?.name || '-'}</p>
-				<p>Apellidos: {gameInfo.selectedStudent?.lastnames || '-'}</p>
-				<p className='uppercase'>Grupo: {gameInfo.selectedStudent?.group || '-'}</p>
-				<p>
-					{gameInfo.selectedStudent && gameInfo.selectedStudent.code instanceof Array
-						? `Códigos: ${gameInfo.selectedStudent?.code.join('\n')}`
-						: `Código: ${gameInfo.selectedStudent?.code ?? '-'}`}
-				</p>
-			</aside>
 		</section>
 	)
 }
