@@ -34,6 +34,7 @@ export type GameProps = SketchProps & {
 	students: Student[]
 	year: Year
 	onUpdateGameInfo?: (info: GameInfo) => void
+	onSetup?: () => void
 }
 
 export type GameInstance = P5CanvasInstance<GameProps>
@@ -43,4 +44,5 @@ export interface GameInstanceState {
 	year: Year | null
 	camera: { x: number; y: number }
 	onUpdateGameInfo?: (info: GameInfo) => void
+	onSetup?: () => void
 }

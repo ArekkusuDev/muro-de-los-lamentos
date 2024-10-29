@@ -12,3 +12,7 @@ body {
   background-size: cover;
   background-position: top;
 }
+
+#p5_loading {
+  @apply invisible;
+}
