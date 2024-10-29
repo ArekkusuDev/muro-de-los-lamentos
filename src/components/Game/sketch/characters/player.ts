@@ -3,7 +3,7 @@ import type { Vector } from 'p5'
 import type { GameMap } from '../map/GameMap'
 
 interface PlayerProps {
-	gameMap: GameMap
+	map: GameMap
 }
 
 export class Player {
@@ -16,7 +16,7 @@ export class Player {
 	constructor(p5: GameInstance, props: PlayerProps) {
 		this.worldSize = 2000
 		// this.position = p5.createVector(this.worldSize / 2, this.worldSize / 2)
-		this.position = props.gameMap.getRandomPosition(p5, 0)
+		this.position = props.map.getRandomPosition(p5, 0)
 		this.velocity = p5.createVector(0, 0)
 		this.size = 20
 		this.character_velocity = 3
