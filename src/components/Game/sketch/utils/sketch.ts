@@ -11,8 +11,16 @@ interface SoulState {
 	isLoading: boolean
 }
 
+// cache to store the souls and their state
 const soulsCache = new Map<number, SoulState>()
 
+/**
+ * Handle all the souls in the game like drawing them, checking if the player is in range, and handling the collision
+ * @param p5 current game instance of p5
+ * @param souls list of souls to handle
+ * @param player current player instance
+ * @param year current year selected
+ */
 export async function handleSouls(p5: GameInstance, souls: Soul[], player: Player, year: Year) {
 	let tooltipText = ''
 	let tooltipPosition = { x: 0, y: 0 }
@@ -44,19 +52,17 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 				}
 			}
 
+			// TODO: This could be optimized to avoid creating the tooltip every frame (i think)
 			if (soulState.isLoading) {
 				tooltipText = 'Cargando información...'
-				tooltipPosition = { x: soul.position.x, y: soul.position.y }
-				tooltipVisible = true
 			} else if (soulState.student) {
 				tooltipText = `Presione 'E' para mostrar información de ${soulState.student.name}`
-				tooltipPosition = { x: soul.position.x, y: soul.position.y }
-				tooltipVisible = true
 			} else {
 				tooltipText = 'Error al cargar información'
-				tooltipPosition = { x: soul.position.x, y: soul.position.y }
-				tooltipVisible = true
 			}
+
+			tooltipPosition = { x: soul.position.x, y: soul.position.y }
+			tooltipVisible = true
 		}
 
 		if (soul.collision(player.position, player.size)) {
@@ -69,6 +75,11 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 	}
 }
 
+/**
+ * Handle the collision between the player and a soul
+ * @param player current player instance
+ * @param soul current soul instance
+ */
 export function handleCollision(player: Player, soul: Soul) {
 	const pushDirection = Vector.sub(player.position, soul.position)
 	pushDirection.normalize()
@@ -79,6 +90,11 @@ export function handleCollision(player: Player, soul: Soul) {
 	player.position = newPos
 }
 
+/**
+ * Handle the key press event on the game
+ * @param souls list of souls in the game
+ * @param playerPositon current player position
+ */
 export function soulOnKeyPress(souls: Soul[], playerPositon: Vector) {
 	const soul = souls.find(soul => soul.isInRange(playerPositon))
 
@@ -91,6 +107,9 @@ export function soulOnKeyPress(souls: Soul[], playerPositon: Vector) {
 	}
 }
 
+/**
+ * Clear the cache of the souls
+ */
 export function clearSoulsCache() {
 	soulsCache.clear()
 }
