@@ -1,3 +1,4 @@
+import { gameConfig } from '@/config'
 import type { GameInstance } from '@/types'
 import type { Image, Vector } from 'p5'
 import type { GameMap } from '../map/GameMap'
@@ -13,10 +14,8 @@ export class Player {
 	public velocity: Vector
 	public size: number
 	private character_velocity: number
-	private worldSize: number
 	private image: Image
 	private runninImage: Image
-	private imageResize = 80
 	private direction: 'left' | 'right'
 	private isRunning: boolean
 	private shadowSize: number
@@ -26,11 +25,10 @@ export class Player {
 	private floatingTime: number
 
 	constructor(p5: GameInstance, props: PlayerProps) {
-		this.worldSize = 2000
 		// this.position = p5.createVector(this.worldSize / 2, this.worldSize / 2)
 		this.position = props.map.getRandomPosition(p5, 0)
 		this.velocity = p5.createVector(0, 0)
-		this.size = 20
+		this.size = gameConfig.player.size
 		this.character_velocity = 3
 		this.image = props.image
 		this.runninImage = props.runningImage
@@ -62,9 +60,11 @@ export class Player {
 	}
 
 	public draw(p5: GameInstance) {
-		this.imageResize = this.isRunning ? 60 : 80
-		this.floatingTime += this.floatingSpeed
+		const imageResize = this.isRunning
+			? gameConfig.player.imageRunningResize
+			: gameConfig.player.imageResize
 		const floatingY = Math.sin(this.floatingTime) * this.floatingOffset
+		this.floatingTime += this.floatingSpeed
 
 		this.drawShadow(p5)
 
@@ -79,16 +79,16 @@ export class Player {
 					currentImage,
 					-this.position.x,
 					this.position.y + floatingY,
-					this.imageResize,
-					this.imageResize
+					imageResize,
+					imageResize
 				)
 			} else {
 				p5.image(
 					currentImage,
 					this.position.x,
 					this.position.y + floatingY,
-					this.imageResize,
-					this.imageResize
+					imageResize,
+					imageResize
 				)
 			}
 		} else {
@@ -106,23 +106,25 @@ export class Player {
 
 	public move(p5: GameInstance) {
 		const newVelocity = p5.createVector(0, 0)
+		// Also allow arrow keys
+		const isAPressed = p5.keyIsDown(65) || p5.keyIsDown(37)
+		const isDPressed = p5.keyIsDown(68) || p5.keyIsDown(39)
+		const isSPressed = p5.keyIsDown(83) || p5.keyIsDown(40)
+		const isWPressed = p5.keyIsDown(87) || p5.keyIsDown(38)
 
-		// A
-		if (p5.keyIsDown(65)) {
+		if (isAPressed) {
 			newVelocity.x -= this.character_velocity
 			this.direction = 'left'
 		}
-		// D
-		if (p5.keyIsDown(68)) {
+		if (isDPressed) {
 			newVelocity.x += this.character_velocity
 			this.direction = 'right'
 		}
-		// S
-		if (p5.keyIsDown(87)) newVelocity.y -= this.character_velocity
-		// W
-		if (p5.keyIsDown(83)) newVelocity.y += this.character_velocity
-		// shift key to run
-		if (p5.keyIsDown(16)) {
+		if (isWPressed) newVelocity.y -= this.character_velocity
+		if (isSPressed) newVelocity.y += this.character_velocity
+
+		// Only run if shift is pressed while moving
+		if (p5.keyIsDown(16) && (isAPressed || isDPressed || isWPressed || isSPressed)) {
 			newVelocity.mult(2)
 			this.isRunning = true
 			this.shadowOpacity = 0.4
@@ -135,7 +137,15 @@ export class Player {
 		this.velocity = newVelocity
 
 		// limit the player to the canvas
-		this.position.x = p5.constrain(this.position.x, this.size / 2, this.worldSize - this.size / 2)
-		this.position.y = p5.constrain(this.position.y, this.size / 2, this.worldSize - this.size / 2)
+		this.position.x = p5.constrain(
+			this.position.x,
+			this.size / 2,
+			gameConfig.map.size - this.size / 2
+		)
+		this.position.y = p5.constrain(
+			this.position.y,
+			this.size / 2,
+			gameConfig.map.size - this.size / 2
+		)
 	}
 }

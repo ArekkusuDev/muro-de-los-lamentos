@@ -1,12 +1,6 @@
 import type { GameInstance } from '@/types'
-import type { GameMap } from '../map/GameMap'
+import type { SoulProps } from '@/types/soul'
 import { Vector, Image } from 'p5'
-
-interface SoulProps {
-	id: string
-	map: GameMap
-	image: Image | null
-}
 
 export class Soul {
 	public id: string

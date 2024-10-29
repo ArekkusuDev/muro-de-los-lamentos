@@ -1,7 +1,7 @@
-import { Year } from '@/types'
+import { Year } from '@/types/api'
 import { ButtonColored } from '@/components/ButtonColored'
 
-interface ExitButtonProps {
+type ExitButtonProps = {
 	year: Year | undefined
 	setYear: (year: Year | undefined) => void
 	toggleGameStart: () => void

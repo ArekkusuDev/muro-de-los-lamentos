@@ -1,12 +1,13 @@
 import { GameInstance } from '@/types'
+import { gameConfig } from '@/config'
 
 export class GameMap {
 	private tiles: number[][]
 	private tileSize: number
 	private grassCount = 0
-	private worldSize = 2000
-	private rows = 60
-	private columns = 60
+	private worldSize = gameConfig.map.size
+	private rows = gameConfig.map.rows
+	private columns = gameConfig.map.columns
 
 	constructor() {
 		this.tileSize = this.worldSize / this.rows

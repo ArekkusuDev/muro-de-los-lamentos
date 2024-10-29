@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-interface LayoutWrappperProps {
+type LayoutWrappperProps = {
 	children: ReactNode
 	year?: string
 	remainigStudents?: number
