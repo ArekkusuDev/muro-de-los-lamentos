@@ -19,6 +19,12 @@ export class Api {
 		return data[year]?.[index]
 	}
 
+	static async getStudentById(year: Year, id: string): Promise<Student | undefined> {
+		const data = await this.getData()
+
+		return data[year]?.find(student => student.student_id === id)
+	}
+
 	static async getYearsList(): Promise<Year[]> {
 		const data = await this.getData()
 
