@@ -16,18 +16,22 @@ let state: GameInstanceState = {
 // global instances
 let player: Player
 let soulImage: p5.Image | null = null
+let playerImage: p5.Image | null = null
+let playerRunningImage: p5.Image | null = null
 const map = new GameMap()
 
 function preload(p5: GameInstance) {
 	return () => {
 		soulImage = p5.loadImage('/assets/tombstone.avif')
+		playerImage = p5.loadImage('/assets/ghost.avif')
+		playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
 	}
 }
 
 function setup(p5: GameInstance) {
 	return () => {
 		p5.createCanvas(1000, 600)
-		player = new Player(p5, { map })
+		player = new Player(p5, { map, image: playerImage!, runningImage: playerRunningImage! })
 	}
 }
 
@@ -38,8 +42,6 @@ function draw(p5: GameInstance) {
 		p5.translate(-state.camera.x, -state.camera.y)
 
 		map.draw(p5)
-		player.draw(p5)
-		player.move(p5)
 
 		if (state.souls.length && state.year) {
 			handleSouls(p5, state.souls, player, state.year).catch(error => {
@@ -47,6 +49,8 @@ function draw(p5: GameInstance) {
 			})
 		}
 
+		player.draw(p5)
+		player.move(p5)
 		updateCamera(p5, state, player)
 
 		p5.pop()
