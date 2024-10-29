@@ -15,7 +15,7 @@ export default function Home() {
 
 			<ButtonColored
 				onClick={toggleGameStart}
-				text='Ver las almas'
+				text='Visitar cementerio'
 			/>
 		</section>
 	)

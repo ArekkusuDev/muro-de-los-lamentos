@@ -2,21 +2,21 @@ import type { GameInstance, GameInstanceState } from '@/types'
 import p5 from 'p5'
 import { Player } from './characters/player'
 import { Soul } from './characters/soul'
-import { GameMap } from './map/GameMap'
 import { updateCamera } from './utils/camera'
-import { clearSoulsCache, handleSouls } from './utils/sketch'
+import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
+import { GameMap } from './map/GameMap'
 
 let state: GameInstanceState = {
 	souls: [],
 	year: null,
 	camera: { x: 0, y: 0 },
-	map: new GameMap(),
 	onUpdateGameInfo: undefined
 }
 
 // global instances
 let player: Player
 let soulImage: p5.Image | null = null
+const map = new GameMap()
 
 function preload(p5: GameInstance) {
 	return () => {
@@ -27,7 +27,7 @@ function preload(p5: GameInstance) {
 function setup(p5: GameInstance) {
 	return () => {
 		p5.createCanvas(1000, 600)
-		player = new Player(p5, { gameMap: state.map })
+		player = new Player(p5, { map })
 	}
 }
 
@@ -37,7 +37,7 @@ function draw(p5: GameInstance) {
 		p5.push()
 		p5.translate(-state.camera.x, -state.camera.y)
 
-		state.map.draw(p5)
+		map.draw(p5)
 		player.draw(p5)
 		player.move(p5)
 
@@ -55,11 +55,13 @@ function draw(p5: GameInstance) {
 
 function keyPressed(p5: GameInstance) {
 	return () => {
-		if (p5.keyCode === 69) {
-			if (state.onUpdateGameInfo) {
+		if (p5.keyCode === 70) {
+			const result = soulOnKeyPress(state.souls, player.position)
+
+			if (state.onUpdateGameInfo && result) {
 				state.onUpdateGameInfo({
-					remainigStudents: state.souls.length - 1,
-					foundStudents: 0
+					remainigStudents: result.totalSouls - result.foundSouls,
+					foundStudents: result.foundSouls
 				})
 			}
 		}
@@ -73,11 +75,12 @@ export function gameSketch(p5: GameInstance) {
 	p5.keyPressed = keyPressed(p5)
 	p5.updateWithProps = props => {
 		try {
+			// only clear cache and update souls if year or students change
 			if (props.year !== state.year || state.souls.length !== props.students.length) {
 				clearSoulsCache()
 
 				state.souls = props.students.map(
-					(_, index) => new Soul(p5, { id: index, gameMap: state.map, image: soulImage })
+					student => new Soul(p5, { id: student.student_id, map, image: soulImage })
 				)
 			}
 
