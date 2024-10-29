@@ -1,10 +1,10 @@
-import type { GameInstance, GameInstanceState, Student } from '@/types'
+import type { GameInstance, GameInstanceState } from '@/types'
 import p5 from 'p5'
 import { Player } from './characters/player'
 import { Soul } from './characters/soul'
 import { GameMap } from './map/GameMap'
 import { updateCamera } from './utils/camera'
-import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
+import { clearSoulsCache, handleSouls } from './utils/sketch'
 
 let state: GameInstanceState = {
 	souls: [],
@@ -17,7 +17,6 @@ let state: GameInstanceState = {
 // global instances
 let player: Player
 let soulImage: p5.Image | null = null
-let selectedStudentSoul: Student | undefined
 
 function preload(p5: GameInstance) {
 	return () => {
@@ -27,7 +26,7 @@ function preload(p5: GameInstance) {
 
 function setup(p5: GameInstance) {
 	return () => {
-		p5.createCanvas(900, 600)
+		p5.createCanvas(1000, 600)
 		player = new Player(p5, { gameMap: state.map })
 	}
 }
@@ -57,14 +56,10 @@ function draw(p5: GameInstance) {
 function keyPressed(p5: GameInstance) {
 	return () => {
 		if (p5.keyCode === 69) {
-			const { souls } = state
-			selectedStudentSoul = soulOnKeyPress(souls, player.position)
-
-			if (state.onUpdateGameInfo && selectedStudentSoul) {
+			if (state.onUpdateGameInfo) {
 				state.onUpdateGameInfo({
 					remainigStudents: state.souls.length - 1,
-					foundStudents: 0,
-					selectedStudent: selectedStudentSoul
+					foundStudents: 0
 				})
 			}
 		}
