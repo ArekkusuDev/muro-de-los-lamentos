@@ -29,7 +29,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export interface GameInfo {
 	remainigStudents: number
 	foundStudents: number
-	selectedStudent: Student | null
 }
 
 export type GameProps = SketchProps & {
