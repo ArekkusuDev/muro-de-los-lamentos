@@ -10,7 +10,8 @@ let state: GameInstanceState = {
 	souls: [],
 	year: null,
 	camera: { x: 0, y: 0 },
-	onUpdateGameInfo: undefined
+	onUpdateGameInfo: undefined,
+	onSetup: undefined
 }
 
 // global instances
@@ -25,13 +26,6 @@ function preload(p5: GameInstance) {
 		soulImage = p5.loadImage('/assets/tombstone.avif')
 		playerImage = p5.loadImage('/assets/ghost.avif')
 		playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
-	}
-}
-
-function setup(p5: GameInstance) {
-	return () => {
-		p5.createCanvas(1000, 600)
-		player = new Player(p5, { map, image: playerImage!, runningImage: playerRunningImage! })
 	}
 }
 
@@ -74,7 +68,15 @@ function keyPressed(p5: GameInstance) {
 
 export function gameSketch(p5: GameInstance) {
 	p5.preload = preload(p5)
-	p5.setup = setup(p5)
+	p5.setup = () => {
+		p5.createCanvas(1000, 600)
+		player = new Player(p5, { map, image: playerImage!, runningImage: playerRunningImage! })
+
+		if (state.onSetup && typeof state.onSetup === 'function') {
+			state.onSetup()
+			console.log('Game setup')
+		}
+	}
 	p5.draw = draw(p5)
 	p5.keyPressed = keyPressed(p5)
 	p5.updateWithProps = props => {
@@ -90,7 +92,8 @@ export function gameSketch(p5: GameInstance) {
 
 			state = Object.assign(state, {
 				...props,
-				onUpdateGameInfo: props.onUpdateGameInfo
+				onUpdateGameInfo: props.onUpdateGameInfo,
+				onSetup: props.onSetup
 			})
 		} catch (error) {
 			console.error(error)
