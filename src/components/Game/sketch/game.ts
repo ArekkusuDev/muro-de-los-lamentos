@@ -41,11 +41,9 @@ function draw(p5: GameInstance) {
 		map.draw(p5, state.camera)
 
 		if (state.souls.length && state.year) {
-			handleSouls(p5, state.souls, player, state.year, state.camera).catch(
-				error => {
-					console.error(`Error handling souls: ${error}`)
-				}
-			)
+			handleSouls(p5, state.souls, player, state.year, state.camera).catch(error => {
+				console.error(`Error handling souls: ${error}`)
+			})
 		}
 
 		player.draw(p5)

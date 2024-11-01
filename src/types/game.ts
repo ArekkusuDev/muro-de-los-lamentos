@@ -22,7 +22,7 @@ export type GameInstance = P5CanvasInstance<GameProps>
 export type GameInstanceState = {
 	souls: Soul[]
 	year: Year | null
-	camera: { x: number; y: number },
+	camera: { x: number; y: number }
 	onUpdateGameInfo?: (info: GameInfo) => void
 	onSetup?: () => void
 }
