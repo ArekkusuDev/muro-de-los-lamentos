@@ -10,7 +10,7 @@ export function Sketch({ year }: { year: Year }) {
 	const [students, setStudents] = useState<Student[]>([])
 	const [p5Loading, setP5Loading] = useState(true)
 	const [gameInfo, setGameInfo] = useState({
-		remainigStudents: students.length,
+		remainigStudents: 0,
 		foundStudents: 0
 	})
 
@@ -19,6 +19,10 @@ export function Sketch({ year }: { year: Year }) {
 			try {
 				const fetchedStudents = await Api.getStudentsByYear(year)
 				setStudents(fetchedStudents)
+				setGameInfo(prev => ({
+					...prev,
+					remainigStudents: fetchedStudents.length - 1
+				}))
 			} catch (error) {
 				console.error(`Error fetching students: ${error}`)
 			}

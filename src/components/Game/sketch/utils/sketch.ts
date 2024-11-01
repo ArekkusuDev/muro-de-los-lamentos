@@ -6,6 +6,7 @@ import { Vector } from 'p5'
 import type { Player } from '../characters/player'
 import type { Soul } from '../characters/soul'
 import { displayTooltip, genTextStudent } from './tooltip'
+import { isInViewport } from './viewport'
 
 // cache to store the souls and their state
 const soulsCache = new Map<string, SoulState>()
@@ -18,18 +19,30 @@ let lastInteractedSoul: string | null = null
  * @param player current player instance
  * @param year current year selected
  */
-export async function handleSouls(p5: GameInstance, souls: Soul[], player: Player, year: Year) {
+export async function handleSouls(
+	p5: GameInstance,
+	souls: Soul[],
+	player: Player,
+	year: Year,
+	camera: { x: number; y: number }
+) {
 	let tooltipText = ''
 	let tooltipPosition = { x: 0, y: 0 }
 	let tooltipVisible = false
 	let showStudentInfo = false
 	let soulInRange = false
 
-	if (p5.keyIsDown(70)) {
-		showStudentInfo = true
-	}
+	// only draw and handle the souls that are visible in the viewport (not in worldSize!!!)
+	const visibleSouls = souls.filter(soul =>
+		isInViewport({
+			position: soul.position,
+			camera,
+			screenHeight: p5.height,
+			screenWidth: p5.width
+		})
+	)
 
-	for (const soul of souls) {
+	for (const soul of visibleSouls) {
 		const currentSoulState = soulsCache.get(soul.getId())
 		if (currentSoulState?.found) {
 			soul.setFound(true)
@@ -37,9 +50,10 @@ export async function handleSouls(p5: GameInstance, souls: Soul[], player: Playe
 
 		soul.draw(p5)
 
-		const inRange = soul.isInRange(player.position)
-
-		if (inRange) {
+		if (soul.isInRange(player.position)) {
+			if (p5.keyIsDown(70)) {
+				showStudentInfo = true
+			}
 			soulInRange = true
 			let soulState = soulsCache.get(soul.getId())
 

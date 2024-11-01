@@ -35,12 +35,13 @@ function draw(p5: GameInstance) {
 	return () => {
 		p5.background(18, 18, 18)
 		p5.push()
+
 		p5.translate(-state.camera.x, -state.camera.y)
 
-		map.draw(p5)
+		map.draw(p5, state.camera)
 
 		if (state.souls.length && state.year) {
-			handleSouls(p5, state.souls, player, state.year).catch(error => {
+			handleSouls(p5, state.souls, player, state.year, state.camera).catch(error => {
 				console.error(`Error handling souls: ${error}`)
 			})
 		}
@@ -85,6 +86,7 @@ export function gameSketch(p5: GameInstance) {
 			// only clear cache and update souls if year or students change
 			if (props.year !== state.year || state.souls.length !== props.students.length) {
 				clearSoulsCache()
+				map = new GameMap()
 
 				state.souls = props.students.map(
 					student => new Soul(p5, { id: student.student_id, map, image: soulImage })

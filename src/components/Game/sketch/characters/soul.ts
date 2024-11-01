@@ -15,7 +15,7 @@ export class Soul {
 		this.size = 40
 		this.image = props.image
 		this.detectionRadius = 70
-		this.position = props.map.getRandomPosition(p5, 1)
+		this.position = props.map.getRandomUnoccupiedPosition(p5, 1)
 	}
 
 	public getId() {
