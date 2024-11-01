@@ -16,16 +16,18 @@ let state: GameInstanceState = {
 
 // global instances
 let player: Player
+let map: GameMap
 let soulImage: p5.Image | null = null
 let playerImage: p5.Image | null = null
 let playerRunningImage: p5.Image | null = null
-const map = new GameMap()
 
 function preload(p5: GameInstance) {
 	return () => {
 		soulImage = p5.loadImage('/assets/tombstone.avif')
 		playerImage = p5.loadImage('/assets/ghost.avif')
 		playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
+		// preload map (fix: map is not loaded when the game is started)
+		map = new GameMap()
 	}
 }
 
@@ -74,7 +76,6 @@ export function gameSketch(p5: GameInstance) {
 
 		if (state.onSetup && typeof state.onSetup === 'function') {
 			state.onSetup()
-			console.log('Game setup')
 		}
 	}
 	p5.draw = draw(p5)

@@ -9,7 +9,7 @@ interface YearsMenuProps {
 export function YearsMenu({ yearsList, setYear }: YearsMenuProps) {
 	return (
 		<div className='flex flex-col gap-5 p-6 lg:p-8'>
-			<h2 className='text-2xl font-semibold'>Selecciona un año</h2>
+			<h2 className='font-jolly-lodger text-3xl tracking-wider font-semibold'>Selecciona un año</h2>
 			<div className='flex flex-col gap-4'>
 				{yearsList.map(year => (
 					<CardButton
