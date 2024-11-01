@@ -15,8 +15,6 @@ export type GameInfo = {
 export type GameProps = SketchProps & {
 	students: Student[]
 	year: Year
-	onUpdateGameInfo?: (info: GameInfo) => void
-	onSetup?: () => void
 }
 
 export type GameInstance = P5CanvasInstance<GameProps>
