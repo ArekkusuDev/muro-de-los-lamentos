@@ -8,7 +8,8 @@ export default {
 			fontFamily: {
 				title: ['"Henny Penny"', ...fontFamily.sans],
 				creepster: ['Creepster', ...fontFamily.sans],
-				'jolly-lodger': ['"Jolly Lodger"', ...fontFamily.sans]
+				'jolly-lodger': ['"Jolly Lodger"', ...fontFamily.sans],
+				body: ['"Space Grotesk"', ...fontFamily.sans]
 			},
 			textShadow: {
 				sm: '0 1px 2px rgba(0, 0, 0, 0.8)',

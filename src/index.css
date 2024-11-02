@@ -2,30 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: 'Henny Penny';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/HennyPenny-Regular.ttf) format('truetype');
-  }
+@font-face {
+  font-family: 'Henny Penny';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/HennyPenny-Regular.ttf) format('truetype');
+}
 
-  @font-face {
-    font-family: 'Creepster';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/Creepster-Regular.ttf) format('truetype');
-  }
+@font-face {
+  font-family: 'Creepster';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Creepster-Regular.ttf) format('truetype');
+}
 
-  @font-face {
-    font-family: 'Jolly Lodger';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/JollyLodger-Regular.ttf);
-  }
+@font-face {
+  font-family: 'Jolly Lodger';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/JollyLodger-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/SpaceGrotesk-VariableFont_wght.ttf) format('truetype');
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(226 232 240 / 50) transparent;
 }
 
 body {
