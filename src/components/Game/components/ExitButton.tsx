@@ -4,7 +4,7 @@ import { ButtonColored } from '@/components/ButtonColored'
 type ExitButtonProps = {
 	year: Year | undefined
 	setYear: (year: Year | undefined) => void
-	toggleGameStart: () => void
+	toggleGameStart?: () => void
 }
 
 export function ExitButton({ year, setYear, toggleGameStart }: ExitButtonProps) {
