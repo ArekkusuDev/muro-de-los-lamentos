@@ -4,9 +4,8 @@ import { ReactP5Wrapper } from '@p5-wrapper/react'
 import { useEffect, useState } from 'react'
 import { gameSketch } from '../sketch/game'
 import { GameLayoutWrapper } from './GameLayoutWrapper'
-import { P5LoadingPlaceholder } from './P5LoadingPlaceholder'
 
-export function Sketch({ year }: { year: Year }) {
+export default function Sketch({ year }: { year: Year }) {
 	const [students, setStudents] = useState<Student[]>([])
 	const [p5Loading, setP5Loading] = useState(true)
 	const [gameInfo, setGameInfo] = useState({
@@ -37,7 +36,9 @@ export function Sketch({ year }: { year: Year }) {
 			remainigStudents={gameInfo.remainigStudents}
 			foundStudents={gameInfo.foundStudents}
 		>
-			{p5Loading && <P5LoadingPlaceholder />}
+			{p5Loading && (
+				<div className='flex items-center justify-center w-[1000px] h-[600px] bg-gray-800 rounded-lg z-50'></div>
+			)}
 			<ReactP5Wrapper
 				sketch={gameSketch}
 				year={year}
