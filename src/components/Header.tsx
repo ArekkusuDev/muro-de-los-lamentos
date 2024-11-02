@@ -1,6 +1,6 @@
 export function Header() {
 	return (
-		<header className='font-body font-medium flex sticky max-h-[4.5rem] top-0 left-0 w-full py-4 px-4 sm:px-10 bg-gray-900 bg-opacity-50 backdrop-blur-lg justify-center items-center sm:justify-end gap-4 sm:gap-8'>
+		<header className='font-body font-medium flex sticky max-h-[4.5rem] top-0 left-0 w-full py-4 px-4 sm:px-10 bg-transparent bg-opacity-50 backdrop-blur-lg justify-center items-center sm:justify-end gap-4 sm:gap-8'>
 			<a
 				href='https://github.com/ArekkusuDev/muro-de-los-lamentos'
 				target='_blank'

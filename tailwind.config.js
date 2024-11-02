@@ -11,6 +11,13 @@ export default {
 				'jolly-lodger': ['"Jolly Lodger"', ...fontFamily.sans],
 				body: ['"Space Grotesk"', ...fontFamily.sans]
 			},
+			colors: {
+				// https://github.com/Catppuccin/Catppuccin
+				text: '#CDD6F4',
+				'overlay-2': '#9399B2',
+				base: '#1E1E2E',
+				crust: '#11111B'
+			},
 			textShadow: {
 				sm: '0 1px 2px rgba(0, 0, 0, 0.8)',
 				DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.8)',
