@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { ExitButton } from './ExitButton'
 import { useGameContext } from '@/hooks/useGameContext'
 
-export const YearsMenu = memo(function YearsMenu({ yearsList }: { yearsList: Year[] }) {
+const YearsMenu = memo(function YearsMenu({ yearsList }: { yearsList: Year[] }) {
 	const { year, toggleGameStart, setYear } = useGameContext()
 
 	return (
@@ -37,3 +37,5 @@ export const YearsMenu = memo(function YearsMenu({ yearsList }: { yearsList: Yea
 		</section>
 	)
 })
+
+export default YearsMenu
