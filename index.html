@@ -15,12 +15,39 @@
       name="description"
       content="Minijuego relacionado con 'El muro de los lamentos' de la Ingeniería de Sistemas Computacionales"
     />
+    <!-- Preload fonts (an attempt to avoid FOUT)-->
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/HennyPenny-Regular.ttf"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Creepster-Regular.ttf"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/JollyLodger-Regular.ttf"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/SpaceGrotesk-VariableFont_wght.ttf"
+      type="font/ttf"
+      crossorigin
+    />
     <title>El muro de los lamentos</title>
   </head>
   <body>
-    <div class="max-h-screen">
-      <div id="root"></div>
-    </div>
+    <div id="root"></div>
     <script
       type="module"
       src="/src/main.tsx"
