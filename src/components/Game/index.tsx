@@ -3,7 +3,7 @@ import { Api } from '@/lib/api'
 import type { Year } from '@/types/api'
 import { lazy, useEffect, useState } from 'react'
 
-const Sketch = lazy(() => import('./components/Sketch'))
+const GameScreen = lazy(() => import('./components/GameScreen'))
 const YearsMenu = lazy(() => import('./components/YearsMenu'))
 
 export default function Game() {
@@ -23,5 +23,5 @@ export default function Game() {
 		loadYears()
 	}, [])
 
-	return <>{year ? <Sketch year={year} /> : <YearsMenu yearsList={yearsList} />}</>
+	return <>{year ? <GameScreen year={year} /> : <YearsMenu yearsList={yearsList} />}</>
 }
