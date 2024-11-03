@@ -1,105 +1,131 @@
-import type { GameInstance, GameInstanceState } from '@/types/game'
-import p5 from 'p5'
-import { Player } from './characters/player'
-import { Soul } from './characters/soul'
-import { GameMap } from './map/GameMap'
+import type {
+	GameInstance,
+	PropsState,
+	StaticState,
+	PlayerInstance,
+	MapInstance
+} from '@/types/game'
 import { updateCamera } from './utils/camera'
 import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
 
-let state: GameInstanceState = {
-	souls: [],
-	year: null,
-	camera: { x: 0, y: 0 },
-	onUpdateGameInfo: undefined,
-	onSetup: undefined
+async function loadDependencies() {
+	const [{ Player }, { GameMap }, { Soul }] = await Promise.all([
+		import('./characters/player'),
+		import('./map/GameMap'),
+		import('./characters/soul')
+	])
+
+	return { Player, GameMap, Soul }
 }
 
-// global instances
-let player: Player
-let map: GameMap
-let soulImage: p5.Image | null = null
-let playerImage: p5.Image | null = null
-let playerRunningImage: p5.Image | null = null
+export async function createGameSketch() {
+	const { Player, GameMap, Soul } = await loadDependencies()
+	let player: PlayerInstance
+	let map: MapInstance
 
-function preload(p5: GameInstance) {
-	return () => {
-		soulImage = p5.loadImage('/assets/tombstone.avif')
-		playerImage = p5.loadImage('/assets/ghost.avif')
-		playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
-		// preload map (fix: map is not loaded when the game is started)
-		map = new GameMap()
+	const propsState: PropsState = {
+		souls: [],
+		year: null,
+		onUpdateGameInfo: undefined,
+		onSetup: undefined
 	}
-}
 
-function draw(p5: GameInstance) {
-	return () => {
-		p5.background(18, 18, 18)
-		p5.push()
+	const state: StaticState = {
+		isInitialized: false,
+		camera: { x: 0, y: 0 },
+		assets: {
+			soulImage: null,
+			playerImage: null,
+			playerRunningImage: null
+		}
+	}
 
-		p5.translate(-state.camera.x, -state.camera.y)
-
-		map.draw(p5, state.camera)
-
-		if (state.souls.length && state.year) {
-			handleSouls(p5, state.souls, player, state.year, state.camera).catch(error => {
-				console.error(`Error handling souls: ${error}`)
-			})
+	return function gameSketch(p5: GameInstance) {
+		p5.preload = () => {
+			state.assets.soulImage = p5.loadImage('/assets/tombstone.avif')
+			state.assets.playerImage = p5.loadImage('/assets/ghost.avif')
+			state.assets.playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
 		}
 
-		player.draw(p5)
-		player.move(p5)
-		updateCamera(p5, state, player)
+		p5.setup = () => {
+			p5.createCanvas(1000, 600)
+			player = new Player(p5, {
+				map,
+				image: state.assets.playerImage!,
+				runningImage: state.assets.playerRunningImage!
+			})
 
-		p5.pop()
-	}
-}
+			if (propsState.onSetup) {
+				propsState.onSetup()
+			}
 
-function keyPressed(p5: GameInstance) {
-	return () => {
-		if (p5.keyCode === 70) {
-			const result = soulOnKeyPress(state.souls, player.position)
-
-			if (state.onUpdateGameInfo && result) {
-				state.onUpdateGameInfo({
-					remainigStudents: result.totalSouls - result.foundSouls,
-					foundStudents: result.foundSouls
+			if (propsState.onUpdateGameInfo) {
+				propsState.onUpdateGameInfo({
+					remainigStudents: propsState.souls.length - 1,
+					foundStudents: 0
 				})
 			}
 		}
-	}
-}
 
-export function gameSketch(p5: GameInstance) {
-	p5.preload = preload(p5)
-	p5.setup = () => {
-		p5.createCanvas(1000, 600)
-		player = new Player(p5, { map, image: playerImage!, runningImage: playerRunningImage! })
+		p5.draw = () => {
+			p5.background(18, 18, 18)
+			p5.push()
 
-		if (state.onSetup && typeof state.onSetup === 'function') {
-			state.onSetup()
-		}
-	}
-	p5.draw = draw(p5)
-	p5.keyPressed = keyPressed(p5)
-	p5.updateWithProps = props => {
-		try {
-			// only clear cache and update souls if year or students change
-			if (props.year !== state.year || state.souls.length !== props.students.length) {
-				clearSoulsCache()
-				map = new GameMap()
+			p5.translate(-state.camera.x, -state.camera.y)
 
-				state.souls = props.students.map(
-					student => new Soul(p5, { id: student.student_id, map, image: soulImage })
-				)
+			map.draw(p5, state.camera)
+
+			if (propsState.souls.length && propsState.year) {
+				handleSouls(p5, propsState.souls, player, propsState.year, state.camera).catch(error => {
+					console.error(`Error handling souls: ${error}`)
+				})
 			}
 
-			state = Object.assign(state, {
-				...props,
-				onUpdateGameInfo: props.onUpdateGameInfo,
-				onSetup: props.onSetup
-			})
-		} catch (error) {
-			console.error(error)
+			player.draw(p5)
+			player.move(p5)
+			updateCamera(p5, state.camera, player)
+
+			p5.pop()
+		}
+
+		p5.keyPressed = () => {
+			if (p5.keyCode === 70) {
+				const result = soulOnKeyPress(propsState.souls, player.position)
+
+				if (propsState.onUpdateGameInfo && result) {
+					propsState.onUpdateGameInfo({
+						remainigStudents: result.totalSouls - result.foundSouls,
+						foundStudents: result.foundSouls
+					})
+				}
+			}
+		}
+
+		p5.updateWithProps = props => {
+			try {
+				// only clear cache and update souls if year or students change
+				if (props.year !== propsState.year || propsState.souls.length !== props.students.length) {
+					clearSoulsCache()
+					map = new GameMap()
+
+					propsState.souls = props.students.map(
+						student =>
+							new Soul(p5, {
+								id: student.student_id,
+								map,
+								image: state.assets.soulImage
+							})
+					)
+				}
+
+				Object.assign(propsState, {
+					year: props.year,
+					onUpdateGameInfo: props.onUpdateGameInfo,
+					onSetup: props.onSetup
+				})
+			} catch (error) {
+				console.error(error)
+			}
 		}
 	}
 }
