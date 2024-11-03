@@ -26,9 +26,13 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					'react-vendor': ['react', 'react-dom'],
-					'p5-core': ['p5', '@p5-wrapper/react']
+					'p5-vendor': ['@p5-wrapper/react'],
+					'game-core': ['/src/components/Game/sketch/game.ts']
 				}
 			}
 		}
+	},
+	optimizeDeps: {
+		include: ['p5']
 	}
 })
