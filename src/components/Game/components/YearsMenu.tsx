@@ -1,11 +1,11 @@
 import type { Year } from '@/types/api'
-import { CardButton } from './CardButton'
+import { YearButton } from './YearButton'
 import { memo } from 'react'
 import { ExitButton } from './ExitButton'
 import { useGameContext } from '@/hooks/useGameContext'
 
 const YearsMenu = memo(function YearsMenu({ yearsList }: { yearsList: Year[] }) {
-	const { year, toggleGameStart, setYear } = useGameContext()
+	const { setYear } = useGameContext()
 
 	return (
 		<section className='flex flex-col min-h-[calc(100vh-4.5rem)] items-center gap-2 py-2'>
@@ -16,17 +16,14 @@ const YearsMenu = memo(function YearsMenu({ yearsList }: { yearsList: Year[] }) 
 						Los Lamentos
 					</span>
 				</h1>
-				<ExitButton
-					year={year}
-					setYear={setYear}
-					toggleGameStart={toggleGameStart}
-				/>
+				<ExitButton />
 			</div>
+
 			<div className='flex flex-col gap-5 p-6 lg:p-8'>
 				<h2 className='font-jolly-lodger text-3xl tracking-wider'>Selecciona un año</h2>
 				<div className='flex flex-col gap-4'>
 					{yearsList.map(year => (
-						<CardButton
+						<YearButton
 							key={year}
 							onClick={() => setYear(year)}
 							text={year}
