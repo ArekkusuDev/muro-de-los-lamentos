@@ -1,6 +1,6 @@
 import type { ButtonProps } from '@/types/components'
 
-export function CardButton({ text, ...props }: ButtonProps) {
+export function YearButton({ text, ...props }: ButtonProps) {
 	return (
 		<button
 			{...props}

@@ -2,7 +2,7 @@ import { Api } from '@/lib/api'
 import type { Year } from '@/types/api'
 import type { GameInstance } from '@/types/game'
 import type { SoulState } from '@/types/soul'
-import { Vector } from 'p5'
+import type { Vector } from '@/types/p5'
 import type { Player } from '../characters/player'
 import type { Soul } from '../characters/soul'
 import { displayTooltip, genTextStudent } from './tooltip'
@@ -94,7 +94,7 @@ export async function handleSouls(
 		}
 
 		if (soul.collision(player.position, player.size)) {
-			handleCollision(player, soul)
+			handleCollision(p5, player, soul)
 		}
 	}
 
@@ -112,12 +112,16 @@ export async function handleSouls(
  * @param player current player instance
  * @param soul current soul instance
  */
-export function handleCollision(player: Player, soul: Soul) {
-	const pushDirection = Vector.sub(player.position, soul.position)
+export function handleCollision(p5: GameInstance, player: Player, soul: Soul) {
+	const pushDirection = p5.createVector(
+		player.position.x - soul.position.x,
+		player.position.y - soul.position.y
+	)
 	pushDirection.normalize()
 
 	const minDistance = player.size / 2 + soul.size / 2
-	const newPos = Vector.add(soul.position, pushDirection.mult(minDistance))
+	const newPos = p5.createVector(soul.position.x, soul.position.y)
+	newPos.add(pushDirection.mult(minDistance))
 
 	player.position = newPos
 }
@@ -142,14 +146,14 @@ export function soulOnKeyPress(souls: Soul[], playerPositon: Vector) {
 
 				return {
 					foundSouls,
-					totalSouls: souls.length
+					totalSouls: souls.length - 1
 				}
 			}
 
 			const foundSouls = Array.from(soulsCache.values()).filter(state => state.found).length
 			return {
 				foundSouls,
-				totalSouls: souls.length
+				totalSouls: souls.length - 1
 			}
 		}
 	}

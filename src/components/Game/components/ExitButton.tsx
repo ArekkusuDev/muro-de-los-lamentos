@@ -1,13 +1,9 @@
-import { Year } from '@/types/api'
 import { ButtonColored } from '@/components/ButtonColored'
+import { useGameContext } from '@/hooks/useGameContext'
 
-type ExitButtonProps = {
-	year: Year | undefined
-	setYear: (year: Year | undefined) => void
-	toggleGameStart: () => void
-}
+export function ExitButton() {
+	const { year, toggleGameStart, setYear } = useGameContext()
 
-export function ExitButton({ year, setYear, toggleGameStart }: ExitButtonProps) {
 	return (
 		<>
 			{year ? (

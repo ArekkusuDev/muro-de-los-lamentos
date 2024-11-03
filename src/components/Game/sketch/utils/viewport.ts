@@ -1,4 +1,4 @@
-import { Vector } from 'p5'
+import type { Vector } from '@/types/p5'
 
 type Viewport = {
 	position: Vector

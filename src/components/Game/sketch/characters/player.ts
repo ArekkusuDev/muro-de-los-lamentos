@@ -1,12 +1,11 @@
 import { gameConfig } from '@/config'
-import type { GameInstance } from '@/types/game'
-import type { Image, Vector } from 'p5'
-import type { GameMap } from '../map/GameMap'
+import type { GameInstance, MapInstance } from '@/types/game'
+import type { Image, Vector } from '@/types/p5'
 
 interface PlayerProps {
-	map: GameMap
-	image: Image
-	runningImage: Image
+	map: MapInstance
+	image: Image | null
+	runningImage: Image | null
 }
 
 export class Player {
@@ -14,8 +13,8 @@ export class Player {
 	public velocity: Vector
 	public size: number
 	private character_velocity: number
-	private image: Image
-	private runninImage: Image
+	private image: Image | null
+	private runninImage: Image | null
 	private direction: 'left' | 'right'
 	private isRunning: boolean
 	private shadowSize: number
@@ -149,3 +148,5 @@ export class Player {
 		)
 	}
 }
+
+export type PlayerInstance = InstanceType<typeof Player>

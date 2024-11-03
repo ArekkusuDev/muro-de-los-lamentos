@@ -1,11 +1,11 @@
 import { gameConfig } from '@/config'
-import { GameInstance } from '@/types/game'
-import p5 from 'p5'
+import type { GameInstance } from '@/types/game'
+import type { Graphics } from '@/types/p5'
 
 export class GameMap {
 	private tiles: number[][]
 	private tileSize: number
-	private tileCache: Map<string, p5.Graphics> = new Map()
+	private tileCache: Map<string, Graphics> = new Map()
 	private static readonly TILE_TYPES = {
 		ROAD: 0,
 		GRASS: 1
