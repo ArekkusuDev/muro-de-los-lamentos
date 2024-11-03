@@ -1,6 +1,6 @@
 import type { GameInstance } from '@/types/game'
 import type { SoulProps } from '@/types/soul'
-import { Image, Vector } from 'p5'
+import type { Vector, Image } from '@/types/p5'
 
 export class Soul {
 	public id: string
@@ -56,13 +56,13 @@ export class Soul {
 	}
 
 	public collision(playerPosition: Vector, playerSize: number) {
-		const distance = Vector.dist(this.position, playerPosition)
+		const distance = this.position.dist(playerPosition)
 
 		return distance < this.size / 2 + playerSize / 2
 	}
 
 	public isInRange(playerPosition: Vector) {
-		const distance = Vector.dist(this.position, playerPosition)
+		const distance = this.position.dist(playerPosition)
 
 		return distance < this.detectionRadius
 	}
