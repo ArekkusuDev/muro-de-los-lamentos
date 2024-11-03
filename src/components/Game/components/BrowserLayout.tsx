@@ -1,12 +1,10 @@
-import { useStudents } from '@/hooks/useStudents'
-import { Year } from '@/types/api'
+import { Student, Year } from '@/types/api'
 import { lazy, useState } from 'react'
 import { ExitButton } from './ExitButton'
 
 const GameCanvas = lazy(() => import('./GameCanvas'))
 
-export default function BrowserLayout({ year }: { year: Year }) {
-	const students = useStudents(year)
+export default function BrowserLayout({ year, students }: { year: Year, students: Student[] }) {
 	const [gameInfo, setGameInfo] = useState({
 		remainigStudents: 0,
 		foundStudents: 0

@@ -1,12 +1,9 @@
+import { Student } from '@/types/api'
 import { memo } from 'react'
 import { ExitButton } from './ExitButton'
 import { StudentCard } from './StudentCard'
-import { useStudents } from '@/hooks/useStudents'
-import { Year } from '@/types/api'
 
-const MobileLayout = memo(function MobileLayout({ year }: { year: Year }) {
-	const students = useStudents(year)
-
+const MobileLayout = memo(function MobileLayout({ students }: { students: Student[] }) {
 	return (
 		<div className='flex flex-col items-center gap-8 mb-20'>
 			<div>
