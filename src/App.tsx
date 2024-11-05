@@ -11,10 +11,12 @@ export default function App() {
 	const { isGameStarted } = useGameContext()
 
 	return (
-		<main className='flex flex-col'>
+		<>
 			<Header />
-			<Suspense fallback={<LoadingSpinner />}>{isGameStarted ? <Game /> : <Home />}</Suspense>
+			<main className='flex flex-col'>
+				<Suspense fallback={<LoadingSpinner />}>{isGameStarted ? <Game /> : <Home />}</Suspense>
+			</main>
 			<Footer />
-		</main>
+		</>
 	)
 }
