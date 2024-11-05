@@ -6,7 +6,7 @@ import { StudentCard } from './StudentCard'
 const MobileLayout = memo(function MobileLayout({ students }: { students: Student[] }) {
 	return (
 		<div className='flex flex-col items-center gap-8 mb-20'>
-			<div>
+			<div className='pt-8'>
 				<ExitButton />
 			</div>
 
