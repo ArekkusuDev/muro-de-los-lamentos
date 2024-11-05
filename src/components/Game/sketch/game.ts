@@ -1,10 +1,4 @@
-import type {
-	GameInstance,
-	PropsState,
-	StaticState,
-	PlayerInstance,
-	MapInstance
-} from '@/types/game'
+import type { GameInstance, PropsState, StaticState } from '@/types/game'
 import { updateCamera } from './utils/camera'
 import { clearSoulsCache, handleSouls, soulOnKeyPress } from './utils/sketch'
 
@@ -20,8 +14,8 @@ async function loadDependencies() {
 
 export async function createGameSketch() {
 	const { Player, GameMap, Soul } = await loadDependencies()
-	let player: PlayerInstance
-	let map: MapInstance
+	let player: InstanceType<typeof Player>
+	const map = new GameMap()
 
 	const propsState: PropsState = {
 		souls: [],
@@ -34,7 +28,8 @@ export async function createGameSketch() {
 		isInitialized: false,
 		camera: { x: 0, y: 0 },
 		assets: {
-			soulImage: null,
+			deadTombstone: null,
+			liveTombstone: null,
 			playerImage: null,
 			playerRunningImage: null
 		}
@@ -42,7 +37,8 @@ export async function createGameSketch() {
 
 	return function gameSketch(p5: GameInstance) {
 		p5.preload = () => {
-			state.assets.soulImage = p5.loadImage('/assets/tombstone.avif')
+			state.assets.deadTombstone = p5.loadImage('/assets/DeadTombstone.avif')
+			state.assets.liveTombstone = p5.loadImage('/assets/AliveTombstone.avif')
 			state.assets.playerImage = p5.loadImage('/assets/ghost.avif')
 			state.assets.playerRunningImage = p5.loadImage('/assets/ghost_running.avif')
 		}
@@ -76,7 +72,7 @@ export async function createGameSketch() {
 			map.draw(p5, state.camera)
 
 			if (propsState.souls.length && propsState.year) {
-				handleSouls(p5, propsState.souls, player, propsState.year, state.camera).catch(error => {
+				handleSouls(p5, propsState.souls, player, state.camera).catch(error => {
 					console.error(`Error handling souls: ${error}`)
 				})
 			}
@@ -106,22 +102,21 @@ export async function createGameSketch() {
 				// only clear cache and update souls if year or students change
 				if (props.year !== propsState.year || propsState.souls.length !== props.students.length) {
 					clearSoulsCache()
-					map = new GameMap()
 
-					propsState.souls = props.students.map(
-						student =>
-							new Soul(p5, {
-								id: student.student_id,
-								map,
-								image: state.assets.soulImage
-							})
-					)
+					propsState.souls = props.students.map(student => {
+						const image =
+							student.code.length === 3 ? state.assets.liveTombstone : state.assets.deadTombstone
+
+						return new Soul(p5, {
+							student,
+							map,
+							image
+						})
+					})
 				}
 
 				Object.assign(propsState, {
-					year: props.year,
-					onUpdateGameInfo: props.onUpdateGameInfo,
-					onSetup: props.onSetup
+					...props
 				})
 			} catch (error) {
 				console.error(error)
