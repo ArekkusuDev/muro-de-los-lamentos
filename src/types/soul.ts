@@ -4,7 +4,7 @@ import type { Student } from '@/types/api'
 import type { Image } from 'p5'
 
 export type SoulProps = {
-	id: string
+	student: Student
 	map: GameMap
 	image: Image | null
 }
@@ -12,6 +12,5 @@ export type SoulProps = {
 export type SoulState = {
 	soul: Soul
 	student?: Student
-	isLoading: boolean
 	found?: boolean
 }

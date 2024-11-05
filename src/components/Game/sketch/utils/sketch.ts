@@ -1,8 +1,6 @@
-import { Api } from '@/lib/api'
-import type { Year } from '@/types/api'
 import type { GameInstance } from '@/types/game'
-import type { SoulState } from '@/types/soul'
 import type { Vector } from '@/types/p5'
+import type { SoulState } from '@/types/soul'
 import type { Player } from '../characters/player'
 import type { Soul } from '../characters/soul'
 import { displayTooltip, genTextStudent } from './tooltip'
@@ -23,7 +21,6 @@ export async function handleSouls(
 	p5: GameInstance,
 	souls: Soul[],
 	player: Player,
-	year: Year,
 	camera: { x: number; y: number }
 ) {
 	let tooltipText = ''
@@ -59,34 +56,22 @@ export async function handleSouls(
 
 			if (!soulState) {
 				soulState = {
-					soul,
-					isLoading: true
+					soul
 				}
 				soulsCache.set(soul.getId(), soulState)
 
-				try {
-					const student = await Api.getStudentById(year, soul.getId())
-					soulState.student = student
-					soulsCache.set(soul.getId(), soulState)
-					soulState.isLoading = false
-				} catch (error) {
-					console.error(`Error loading student: ${error}`)
-					soulState.isLoading = false
-				}
+				soulState.student = soul.getStudentInfo()
+				soulsCache.set(soul.getId(), soulState)
 			}
 
 			// TODO: This could be optimized to avoid creating the tooltip every frame (i think)
-			if (soulState.isLoading) {
-				tooltipText = 'Cargando información...'
-			} else if (soulState.student) {
+			if (soulState.student) {
 				if (showStudentInfo || lastInteractedSoul === soul.getId()) {
 					tooltipText = genTextStudent(soulState.student)
 					lastInteractedSoul = soul.getId()
 				} else {
 					tooltipText = `Presiona 'F' para mostrar información de ${soulState.student.name}`
 				}
-			} else {
-				tooltipText = 'Error al cargar información'
 			}
 
 			tooltipPosition = { x: soul.position.x, y: soul.position.y }

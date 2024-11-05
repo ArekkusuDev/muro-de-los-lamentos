@@ -1,9 +1,10 @@
 import type { GameInstance } from '@/types/game'
 import type { SoulProps } from '@/types/soul'
 import type { Vector, Image } from '@/types/p5'
+import type { Student } from '@/types/api'
 
 export class Soul {
-	public id: string
+	public student: Student
 	public size: number
 	public position: Vector
 	public detectionRadius: number
@@ -11,7 +12,7 @@ export class Soul {
 	private found: boolean = false
 
 	constructor(p5: GameInstance, props: SoulProps) {
-		this.id = props.id
+		this.student = props.student
 		this.size = 40
 		this.image = props.image
 		this.detectionRadius = 70
@@ -19,7 +20,11 @@ export class Soul {
 	}
 
 	public getId() {
-		return this.id
+		return this.student.student_id
+	}
+
+	public getStudentInfo() {
+		return this.student
 	}
 
 	public setFound(found: boolean) {
