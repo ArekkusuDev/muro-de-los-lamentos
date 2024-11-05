@@ -2,16 +2,14 @@ import type { Student } from '@/types/api'
 import type { GameInstance } from '@/types/game'
 
 export function genTextStudent(student: Student) {
-	const { name, lastnames, student_id, email, group, code } = student
-	const codeText = Array.isArray(code) ? `Códigos: ${code.join(', ')}` : `Código: ${code}`
+	const { name, lastnames, student_id, email, group } = student
 
 	return [
 		`Nombre: ${name}`,
 		`Apellidos: ${lastnames}`,
 		`Matrícula: ${student_id}`,
 		`Correo: ${email}`,
-		`Grupo: ${group.toUpperCase()}`,
-		codeText
+		`Grupo: ${group.toUpperCase()}`
 	].join('\n')
 }
 
