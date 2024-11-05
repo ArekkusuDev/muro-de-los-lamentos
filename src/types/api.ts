@@ -4,7 +4,7 @@ export type Student = {
 	student_id: string
 	email: string
 	group: string
-	code: string[] | string
+	code: string[]
 	signup_date: string
 }
 
